@@ -1,4 +1,4 @@
-export default function StoryIcon({ className, active }: {className: string, active: boolean}) {
+export default function StoryIcon({ className, active }: {className: string, active?: boolean}) {
   if (active) {
     return (
       <svg

@@ -27,7 +27,8 @@ export default function RegisterForm() {
 
   const onSubmit = async (data: any) => {
     const res = await dispatch(loginUser(data) as any);
-    if (res?.payload?.user) {
+
+    if (res.payload) {      
       navigate('/');
     }
   };
@@ -54,17 +55,16 @@ export default function RegisterForm() {
             register={register}
             error={errors?.password?.message}
           />
-          {error && <p className="text-red-400">{error}</p>}
+          {error && <p className="text-red-400 text-center">{error}</p>}
           <button
             className="w-full flex justify-center bg-green_1 text-gray-100 p-4 rounded-full tracking-wide font-semibold focus:outline-none hover:bg-green_2  shadow-lg cursor-pointer transition ease-in duration-3"
             type="submit"
             disabled={status === 'loading'}>
             {status === 'loading' ? <PulseLoader color="#ffff" /> : 'Sign Up'}
-            Sign In
           </button>
           <p className="flex flex-col items-center justify-center mt-10 text-center text-md dark:text-dark_text_1">
             <span>Don't you have an account?</span>
-            <Link to="/login" className="hover:underline cursor-pointer transition ease-in duration-300">
+            <Link to="/register" className="hover:underline cursor-pointer transition ease-in duration-300">
               Sign Up
             </Link>
           </p>

@@ -6,6 +6,7 @@ export const generateToken = async (
   secret?: string
 ) => {
   const token = await singToken(payload, expiresIn, secret);
+
   return token;
 };
 

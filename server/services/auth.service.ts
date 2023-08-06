@@ -75,7 +75,7 @@ export const signUser = async (email: string, password: string) => {
 
   const passMatches = await user.matchPasswords(password);
 
-  if (passMatches) {
+  if (!passMatches) {
     throw createHttpError.NotFound('Invalid Credentials.');
   }
 

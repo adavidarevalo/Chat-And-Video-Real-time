@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import { CloseIcon } from '../../icons';
 
 interface PictureProps {
   readablePicture: string;
@@ -36,6 +37,12 @@ setError("")
     inputRef.current.click();
   }
 
+  const handleDeleteImage = () => {
+    setError('');
+    setPicture('');
+    setReadablePicture('');
+  }
+
   return (
     <div className="mt-8 content-center dark:text-dark_text_1 space-y-1">
       <label htmlFor="picture" className="text-sm font-bold tracking-wide">
@@ -43,16 +50,21 @@ setError("")
       </label>
       {readablePicture ? (
         <div>
-          <img src={readablePicture} alt={'avatar'} className="w-20 h-20 object-cover rounded-full" />
+          <div className="relative w-[80px]">
+            <div className="absolute bg-dark_svg_2 rounded-full right-0" onClick={handleDeleteImage}>
+              <CloseIcon className="" />
+            </div>
+            <img src={readablePicture} alt={'avatar'} className="w-20 h-20 object-cover rounded-full" />
+          </div>
           <div
-            className="mt-2 py-1 w-20 dark:bg-dark_bg_3 rounded-md text-xs flex items-center justify-center cursor-pointer"
-            onClick={() => handleChangePic()}>
+            className="mt-2 py-1 w-20 dark:bg-dark_bg_3 transition hover:dark:bg-dark_bg_4 rounded-md text-xs flex items-center justify-center cursor-pointer"
+            onClick={handleChangePic}>
             Change
           </div>
         </div>
       ) : (
         <div
-          className="w-full h-12 dark:bd-dark_bg_3 rounded-md font-bold flex items-center justify-center cursor-pointer"
+          className="w-full h-12 dark:bg-dark_bg_3 transition hover:dark:bg-dark_bg_4 rounded-md font-bold flex items-center justify-center cursor-pointer"
           onClick={() => inputRef.current.click()}>
           Upload Picture
         </div>

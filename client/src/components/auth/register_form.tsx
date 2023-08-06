@@ -10,6 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { registerUser } from '../../redux/actions/user.actions';
 import Picture from './picture';
 import axios from 'axios';
+import { changeStatus } from '../../redux/slices/user.slice';
 
 export default function RegisterForm() {
     const [picture, setPicture] = useState<any>()
@@ -35,12 +36,12 @@ export default function RegisterForm() {
         password: string
     }) => {
       dispatch(changeStatus("loading"));
-      let pictureUrl;
+      let picture = process.env.REACT_APP_DEFAULT_AVATAR;
       if (picture) {
         const pictureUploaded = await uploadImage()
-        pictureUrl = (pictureUploaded as any)?.secure_url
+        picture = (pictureUploaded as any)?.secure_url
       } 
-      const res = await dispatch(registerUser({ ...data, picture: pictureUrl || '' }) as any);
+      const res = await dispatch(registerUser({ ...data, picture }) as any);
       if (res?.payload?.user) {
         navigate("/")
       }
@@ -51,7 +52,7 @@ export default function RegisterForm() {
       formData.append('upload_preset', `${process.env.REACT_APP_CLOUD_SECRET}`);
       formData.append("file", picture)
       const { data } = await axios.post(
-        `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image`, 
+        `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`, 
         formData
         );
       return data;
@@ -95,7 +96,7 @@ export default function RegisterForm() {
           />
           <Picture readablePicture={readablePicture} setPicture={setPicture} setReadablePicture={setReadablePicture} />
 
-          {error && <p className="text-red-400">{error}</p>}
+          {error && <p className="text-red-400 text-center">{error}</p>}
           <button
             className="w-full flex justify-center bg-green_1 text-gray-100 p-4 rounded-full tracking-wide font-semibold focus:outline-none hover:bg-green_2  shadow-lg cursor-pointer transition ease-in duration-3"
             type="submit"

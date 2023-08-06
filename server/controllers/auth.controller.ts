@@ -35,7 +35,7 @@ export const register = async (
 
     res.status(201).json({
       message: 'Register Success',
-      access_token,
+      token: access_token,
       user: {
         name: user.name,
         _id: user._id,
@@ -59,8 +59,10 @@ export const login = async (
 
   try {
     const user = await signUser(email, password);
-    const access_token = generateToken(user._id);
-    const refresh_token = generateToken(
+
+    const access_token = await generateToken(user._id);
+
+    const refresh_token = await generateToken(
       user._id,
       '30d',
       process.env.REFRESH_JWT_SECRET
@@ -74,14 +76,13 @@ export const login = async (
 
     res.status(201).json({
       message: 'Register Success',
-      access_token,
       user: {
         name: user.name,
         _id: user._id,
         email: user.email,
         picture: user.picture,
         status: user.status,
-        access_token,
+        token: access_token,
       },
     });
   } catch (error: any) {
