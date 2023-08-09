@@ -8,7 +8,7 @@ export const doesConversationExist = async (
 ) => {
   let conversation: any = await Conversation.findOne({
     isGroup: false,
-    $adn: [
+    $and: [
       { users: { $elemMatch: { $eq: sender_id } } },
       { users: { $elemMatch: { $eq: receiver_id } } },
     ],
@@ -16,16 +16,14 @@ export const doesConversationExist = async (
     .populate('users', '-password')
     .populate('latestMessage');
 
-  if (!conversation) {
-    throw createHttpError.BadRequest('Something went wrong!');
-  }
+  if (!conversation) return false;
 
   conversation = await User.populate(conversation, {
     path: 'latestMessage.sender',
     select: 'name email picture status',
   });
 
-  return conversation[0];
+  return conversation;
 };
 
 export const createConversation = async (conversationData: any) => {

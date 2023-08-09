@@ -15,8 +15,9 @@ export const createOpenConversation = async (
   next: NextFunction
 ) => {
   try {
-    const sender_id = (req as any).user.id;
     const { receiver_id } = req.body;
+
+    const sender_id = (req as any).user.id;
 
     if (!receiver_id) {
       logger.error('please provide receiver_id');
@@ -28,9 +29,10 @@ export const createOpenConversation = async (
       receiver_id
     );
 
-    if (!existed_conversation) {
-      res.status(200).json(existed_conversation);
+    if (existed_conversation) {
+      return res.status(200).json(existed_conversation);
     }
+
     const receiver_user = await findUser(receiver_id);
     const conversationData = {
       name: receiver_user.name,

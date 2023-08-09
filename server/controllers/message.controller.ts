@@ -41,7 +41,11 @@ export const sendMessage = async (
   }
 };
 
-export const getMessage = (req: Request, res: Response, next: NextFunction) => {
+export const getMessage = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const conversation_id = req.params.conversation_id;
 
   if (!conversation_id) {
@@ -50,7 +54,8 @@ export const getMessage = (req: Request, res: Response, next: NextFunction) => {
   }
 
   try {
-    const messages = getConversationMessages(conversation_id);
+    const messages = await getConversationMessages(conversation_id);
+
     res.status(200).json(messages);
   } catch (error) {
     next(error);

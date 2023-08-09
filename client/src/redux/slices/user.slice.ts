@@ -7,7 +7,7 @@ interface InitialState {
   status: string;
   error: string;
   user: {
-    id: string;
+    _id: string;
     name: string;
     email: string;
     picture: string;

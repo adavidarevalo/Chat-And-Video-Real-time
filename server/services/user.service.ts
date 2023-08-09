@@ -21,7 +21,7 @@ export const searchUsers = async (keyword: string, userId: string) => {
 
   query['_id'] = { $ne: userId };
 
-  const users = await User.find(query);
+  const users = await User.find(query).select('-password');
 
   return users;
 };

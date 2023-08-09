@@ -1,33 +1,48 @@
-import React, { useState } from 'react'
+/** @format */
+
+import React, { useState } from 'react';
 import { FilterIcon, ReturnIcon, SearchIcon } from '../../../icons';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import { User } from '../../../types/user.type';
+import { AppState } from '../../../redux/store';
+import _ from 'lodash';
 
 interface SidebarSearchProps {
-    searchLength: number
-    setSearchResults: React.Dispatch<any>
-
+  searchLength: number;
+  setSearchResults: React.Dispatch<React.SetStateAction<User[]>>;
 }
 
 export default function SidebarSearch({ searchLength, setSearchResults }: SidebarSearchProps) {
-  const { user } = useSelector((state: any) => state.user);
-
+  const { user } = useSelector((state: AppState) => state.user);
   const [show, setShow] = useState(false);
 
-  const handlerSearch = async (e: any) => {
-    if (e.target.value && e.key === 'Enter') {
+  const handlerSearch = async (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const value = _.get(e, 'target.value');
+
+    if (value && e.key !== 'Enter') {
+      setSearchResults([]);
+    }
+    if (value && e.key === 'Enter') {
       try {
-        const { data } = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/user?search=${e.target.value}`, {
+        const { data } = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/user?search=${value}`, {
           headers: {
-            Authorization: `Bearer ${user.token}`,
+            Authorization: `Bearer ${user?.token}`,
           },
         });
-        setSearchResults(data)
-      } catch (error: any) {
-        console.log(error.response.data.error.message);
+        setSearchResults(data);
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          const axiosError = error;
+          if (axiosError.response) {
+            console.log(axiosError.response.data.error.message);
+          } else {
+            console.log('Network error or request cancelled');
+          }
+        } else {
+          console.log('Unknown error occurred');
+        }
       }
-    } else {
-      setSearchResults([])
     }
   };
   return (
@@ -52,7 +67,7 @@ export default function SidebarSearch({ searchLength, setSearchResults }: Sideba
               className="input"
               onFocus={() => setShow(true)}
               onBlur={() => searchLength === 0 && setShow(false)}
-              onKeyDown={e => handlerSearch(e)}
+              onKeyDown={handlerSearch}
             />
           </div>
           <button className="btn">

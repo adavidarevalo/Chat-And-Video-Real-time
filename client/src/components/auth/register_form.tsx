@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { signUpSchema } from '../../utils/validation';
 import InputCustom from './input_custom';
 import { PulseLoader } from 'react-spinners';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,6 +10,7 @@ import { registerUser } from '../../redux/actions/user.actions';
 import Picture from './picture';
 import axios from 'axios';
 import { changeStatus } from '../../redux/slices/user.slice';
+import { signUpSchema } from '../../schemas';
 
 export default function RegisterForm() {
     const [picture, setPicture] = useState<any>()

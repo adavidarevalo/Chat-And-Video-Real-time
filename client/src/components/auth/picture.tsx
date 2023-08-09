@@ -12,7 +12,7 @@ export default function Picture({ readablePicture, setPicture, setReadablePictur
   const [error, setError] = useState('');
 
   const handlePicture = (e: any) => {
-    let pic = e?.target?.files[0];
+    const pic = e?.target?.files[0];
     if (!['image/jpeg', 'image/png', 'image/webp'].includes(pic.type)) {
       setError(`${pic.name} format is not supported.`);
       return;

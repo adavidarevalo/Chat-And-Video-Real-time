@@ -2,7 +2,7 @@ import React from 'react'
 import { UseFormRegister } from 'react-hook-form';
 
 interface InputCustomProps {
-  name: any;
+  name: string;
   type: 'text' | 'email' | 'number' | 'password';
   placeholder: string;
   error?: string;

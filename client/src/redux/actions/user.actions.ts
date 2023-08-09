@@ -6,7 +6,6 @@ import axios from 'axios';
 const AUTH_ENDPOINT = `${process.env.REACT_APP_API_ENDPOINT}/auth`;
 
 export const registerUser = createAsyncThunk('auth/register', async (values: any, { rejectWithValue }) => {
-  console.log('🚀 ~ file: user.actions.ts:9 ~ registerUser ~ values:', values);
   try {
     const { data } = await axios.post(`${AUTH_ENDPOINT}/register`, values);
     return data;

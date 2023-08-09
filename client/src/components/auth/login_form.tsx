@@ -1,14 +1,13 @@
-/** @format */
-
+import React from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { loginSchema } from '../../utils/validation';
 import InputCustom from './input_custom';
 import { PulseLoader } from 'react-spinners';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../redux/store';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../redux/actions/user.actions';
+import { loginSchema } from '../../schemas';
 
 export default function RegisterForm() {
 
@@ -25,7 +24,10 @@ export default function RegisterForm() {
     resolver: yupResolver(loginSchema),
   });
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: {
+    email:string;
+    password: string
+  }) => {
     const res = await dispatch(loginUser(data) as any);
 
     if (res.payload) {      
@@ -63,7 +65,7 @@ export default function RegisterForm() {
             {status === 'loading' ? <PulseLoader color="#ffff" /> : 'Sign Up'}
           </button>
           <p className="flex flex-col items-center justify-center mt-10 text-center text-md dark:text-dark_text_1">
-            <span>Don't you have an account?</span>
+            <span>Don&apos;t you have an account?</span>
             <Link to="/register" className="hover:underline cursor-pointer transition ease-in duration-300">
               Sign Up
             </Link>
