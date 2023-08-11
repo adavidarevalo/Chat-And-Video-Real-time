@@ -14,10 +14,10 @@ export interface Conversation {
   _id: string;
   name: string;
   picture: string;
-  isGroup: boolean;
+  isGroup?: boolean;
   users: User[];
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: string;
+  updatedAt?: string;
   __v: number;
   latestMessage: LatestMessage;
 }
@@ -26,9 +26,16 @@ export interface LatestMessage {
   _id: string;
   sender: Sender;
   message: string;
-  conversation: string;
+  conversation: ConversationClass | string;
   file: any[];
   createdAt: string;
   updatedAt: string;
   __v: number;
+}
+
+export interface ConversationClass {
+  _id: string;
+  name: string;
+  picture: string;
+  users: Sender[];
 }

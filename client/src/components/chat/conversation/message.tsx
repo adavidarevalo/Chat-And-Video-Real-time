@@ -16,12 +16,12 @@ export default function Message({ message, isMe }: MessageProps) {
           className={`relative h-full dark:text-dark_text_1 p-2 rounded-lg min-w-[54px] ${
             isMe ? 'bg-green_3' : 'dark:bg-dark_bg_2'
           }`}>
-          <p className="float-left h-full text-sm pb-5">{message.message}</p>
+          <p className="float-left h-full text-sm pb-5 px-[5px]">{message.message}</p>
           <span className="absolute right-1.5 text-xs pt-6 bottom-1 text-dark_text_5">
             {moment(message.createdAt).format('HH:mm')}
           </span>
           <span>
-            {!isMe && <TriangleIcon className="dark:fill-dark_bg_2 rotate-[60deg] absolute top-[5px] -left-1.5" />}
+            {!isMe && <TriangleIcon className="dark:fill-dark_bg_2 rotate-[30deg] absolute top-[0px] -left-1.5" />}
           </span>
         </div>
       </div>

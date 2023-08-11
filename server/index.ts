@@ -1,5 +1,8 @@
 import dotenv from 'dotenv';
 import express, { NextFunction, Request, Response } from 'express';
+import { Server } from 'socket.io';
+import SocketServer from './socket.server';
+
 import morgan from 'morgan';
 import helmet from 'helmet';
 import mongoSanitize from 'express-mongo-sanitize';
@@ -36,7 +39,7 @@ app.use(
 app.use(trimRequest.all);
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: process.env.CLIENT_ENDPOINT,
   })
 );
 
@@ -46,7 +49,6 @@ app.use(async (req, res, next) => {
   next(createHttpError.NotFound('This route does not exist.'));
 });
 
-//error handling
 app.use(async (err: any, req: Request, res: Response, next: NextFunction) => {
   res.status(err.status || 500);
   res.send({
@@ -65,6 +67,19 @@ const server = app.listen(PORT, async () => {
   logger.info(`process id: ${process.pid}`);
 });
 
+//Socket
+const io = new Server(server, {
+  cors: { origin: process.env.CLIENT_ENDPOINT },
+  pingTimeout: 60000,
+  cookie: false,
+});
+
+io.on('connection', (socket) => {
+  logger.info('Socket connected');
+  SocketServer(socket, io);
+});
+
+//Error handling
 const exitHandler = () => {
   if (server) {
     logger.info('Shutting closed...');

@@ -1,54 +1,63 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import _ from "lodash"
 import { dateHandler } from '../../../utils/date';
 import { useDispatch, useSelector } from 'react-redux';
 import { open_create_conversation } from '../../../redux/actions/chat.actions';
-import { getConversationId } from '../../../utils/get_conversation_id';
+import { getConversationId, getConversationName, getConversationPicture } from '../../../utils/get_conversation';
 import { AppState } from '../../../redux/store';
 import { Conversation } from '../../../types/conversation.type';
 import { User } from '../../../types/user.type';
+import { useSocket } from '../../../context/socket.context';
 
 interface ConversationItemProps {
   conversation: Conversation;
+  isOnline: boolean
 } 
 
-export default function ConversationItem({ conversation }: ConversationItemProps) {
+export default function ConversationItem({ conversation, isOnline }: ConversationItemProps) {
   const dispatch = useDispatch();
+  const socket = useSocket();
 
   const { user } = useSelector((state: AppState) => state.user);
-  const { activeConversation } = useSelector((state: AppState) => state.chat);
+  const { activeConversation, conversationTyping } = useSelector((state: AppState) => state.chat);
 
-  const openConversation = () => {
+  const openConversation = async () => {
     const value = {
       receiver_id: getConversationId(user as User, conversation.users),
       token: user?.token || '',
     };
-    dispatch(open_create_conversation(value) as any);
+    const newConversation = await dispatch(open_create_conversation(value) as any);
+    socket?.socket.emit('join conversation', newConversation.payload._id);
   };
+
+  const message = useMemo(() => {
+    if (conversationTyping.includes(conversation?._id || '')) return 'Typing...';
+    return _.truncate(conversation.latestMessage.message, { length: 25 });
+  }, [conversation, conversationTyping]);
 
   return (
     <li
       onClick={openConversation}
       className={`list-none h-[72px] w-full dark:bg-dark_bg_1 hover:${
-        activeConversation._id !== conversation._id && 'dark:bg-dark_bg_2'
-      } dark:text-dark_1 px-[10px] ${activeConversation._id === conversation._id && 'dark:bg-dark_hover_1'}`}>
+        activeConversation?._id !== conversation._id && 'dark:bg-dark_bg_2'
+      } dark:text-dark_1 px-[10px] ${activeConversation?._id === conversation._id && 'dark:bg-dark_hover_1'}`}>
       <div className="relative w-full flex items-center justify-between py-[10px]">
         <div className="flex items-center gap-x-3">
-          <div className="relative w-[80px] rounded-full overflow-hidden">
+          <div className={`relative w-[80px] rounded-full overflow-hidden ${isOnline && 'online'}`}>
             <img
-              src={conversation.picture}
+              src={getConversationPicture(user as any, conversation.users)}
               alt={conversation.name}
               className="w-full h-full object-cover rounded-full"
             />
           </div>
           <div className="w-full flex flex-col">
             <h1 className="font-bold flex items-center gap-x-2 dark:text-dark_text_3">
-              {_.capitalize(conversation.name)}
+              {_.capitalize(getConversationName(user as any, conversation.users))}
             </h1>
             <div>
               <div className="flex items-center gap-x-1 ">
                 <div className="flex-1 items-center gap-x-1 dark:text-dark_text_2">
-                  <p>{_.truncate(conversation.latestMessage.message, { length: 25 })}</p>
+                  <p>{message}</p>
                 </div>
               </div>
             </div>

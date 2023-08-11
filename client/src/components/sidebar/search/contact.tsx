@@ -2,9 +2,11 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { open_create_conversation } from '../../../redux/actions/chat.actions';
 import _ from 'lodash';
+import { useSocket } from '../../../context/socket.context';
 
 export default function Contact({ contact, setSearchResults }: any) {
   const dispatch = useDispatch();
+  const socket = useSocket();
 
   const { user } = useSelector((state: any) => state.user);
 
@@ -13,13 +15,15 @@ export default function Contact({ contact, setSearchResults }: any) {
       receiver_id: contact._id,
       token: user.token,
     };
-    await dispatch(open_create_conversation(value) as any);
+    const newConversation = await dispatch(open_create_conversation(value) as any);
+    socket?.socket.emit('join conversation', newConversation.payload._id);
+
     setSearchResults([])
   };
 
   return (
     <li
-      onClick={() => openConversation()}
+      onClick={openConversation}
       className="w-full list-none h-[72px] hover:dark:bg-dark_bg_2 cursor-pointer dark:text-dark_text_1 px-[10px]">
       <div className="flex-items-center gap-x-3 py-[10px]">
         <div className="flex items-center gap-x-3">

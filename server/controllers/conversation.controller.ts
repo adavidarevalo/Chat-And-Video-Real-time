@@ -8,6 +8,7 @@ import {
   populateConversation,
 } from '../services/conversation.service';
 import { findUser } from '../services/user.service';
+// import { findUser } from '../services/user.service';
 
 export const createOpenConversation = async (
   req: Request,
@@ -34,6 +35,7 @@ export const createOpenConversation = async (
     }
 
     const receiver_user = await findUser(receiver_id);
+
     const conversationData = {
       name: receiver_user.name,
       picture: receiver_user.picture,

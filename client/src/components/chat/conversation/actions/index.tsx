@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { sendMessage } from '../../../../redux/actions/chat.actions';
 import { ClipLoader } from 'react-spinners';
 import { AppState } from '../../../../redux/store';
+import { useSocket } from '../../../../context/socket.context';
 
 export default function ChatActions() {
   const [message, setMessage] = useState('');
@@ -18,6 +19,7 @@ export default function ChatActions() {
   const { activeConversation, status } = useSelector((state: AppState) => state.chat);
   const { user } = useSelector((state: AppState) => state.user);
   const dispatch = useDispatch();
+    const socket = useSocket();
   const textRef = useRef<HTMLInputElement>(null);
 
   const handlerSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -25,13 +27,15 @@ export default function ChatActions() {
     setLoading(true);
     const value = {
       message,
-      conversation_id: activeConversation._id,
+      conversation_id: activeConversation?._id,
       token: user?.token || '',
       files: [],
     };
-    await dispatch(sendMessage(value) as any);
+    const newMessage = await dispatch(sendMessage(value) as any);
+    socket?.socket.emit('send message', newMessage.payload);
     setMessage('');
     setLoading(false);
+    setShowEmoji(false)
   };
   return (
     <form
