@@ -41,8 +41,6 @@ export default function HomePage() {
     });
   }, [])
 
-
-
   useEffect(() => {
     if (user?.token) {
       dispatch(getConversations(user?.token) as any);

@@ -13,14 +13,12 @@ export default function ChatHeader({ insOnline }: ChatHeaderProps) {
 
   const status = useMemo(() => {
     if (conversationTyping.includes(activeConversation?._id || "")) return 'Typing...';
-
     if(insOnline) return 'Online';
-
     return ""
   }, [insOnline, activeConversation, conversationTyping]);
 
   return (
-    <div className="h-[57px] dark:bg-dark_bg_2 flex items-center p16 select-none">
+    <div className="h-[52px] dark:bg-dark_bg_2 flex items-center p16 select-none">
       <div className="w-full flex items-center justify-between">
         <div className="flex items-center gap-x-4">
           <button className="btn">

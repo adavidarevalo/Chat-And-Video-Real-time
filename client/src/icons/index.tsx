@@ -26,6 +26,7 @@ import CallIcon from "./Call";
 import MuteIcon from "./Mute";
 import NoVideoIcon from "./NoVideo";
 import TriangleIcon from "./triangle"
+import DownloadIcon from "./Download";
 
 export {
   TriangleIcon,
@@ -56,4 +57,5 @@ export {
   CallIcon,
   MuteIcon,
   NoVideoIcon,
+  DownloadIcon,
 };

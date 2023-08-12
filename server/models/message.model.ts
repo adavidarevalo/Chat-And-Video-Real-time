@@ -24,7 +24,7 @@ const MessageSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'Conversation',
     },
-    file: [],
+    files: [],
   },
   {
     collection: 'message',

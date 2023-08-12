@@ -42,12 +42,12 @@ export default function ConversationItem({ conversation, isOnline }: Conversatio
         activeConversation?._id !== conversation._id && 'dark:bg-dark_bg_2'
       } dark:text-dark_1 px-[10px] ${activeConversation?._id === conversation._id && 'dark:bg-dark_hover_1'}`}>
       <div className="relative w-full flex items-center justify-between py-[10px]">
-        <div className="flex items-center gap-x-3">
-          <div className={`relative w-[80px] rounded-full overflow-hidden ${isOnline && 'online'}`}>
+        <div className="flex items-center gap-x-3 ">
+          <div className={`relative w-[80px] rounded-full overflow-hidden${isOnline && 'online'}`}>
             <img
               src={getConversationPicture(user as any, conversation.users)}
               alt={conversation.name}
-              className="w-full h-full object-cover rounded-full"
+              className="object-cover rounded-full h-full w-[50px]"
             />
           </div>
           <div className="w-full flex flex-col">

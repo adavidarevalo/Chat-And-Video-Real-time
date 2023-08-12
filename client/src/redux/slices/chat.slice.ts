@@ -23,6 +23,7 @@ interface InitialState {
   messages: Message[];
   onlineUsers: OnlineUsers[];
   conversationTyping: string[];
+  files: any[];
 }
 
 const initialState: InitialState = {
@@ -33,6 +34,7 @@ const initialState: InitialState = {
   messages: [],
   onlineUsers: [],
   conversationTyping: [],
+  files: [],
 };
 
 export const chatSlice = createSlice({
@@ -67,6 +69,15 @@ export const chatSlice = createSlice({
     removeConversationTyping: (state, { payload }) => {
       state.conversationTyping = state.conversationTyping.filter(c => c !== payload);
     },
+    addFiles: (state, { payload }) => {
+      state.files = [...state.files, payload];
+    },
+    clearFiles: state => {
+      state.files = [];
+    },
+    removeFileByIndex: (state, { payload }) => {
+      state.files = state.files.filter((_, index) => index !== payload);
+    },
   },
   extraReducers: builder => {
     builder
@@ -91,6 +102,7 @@ export const chatSlice = createSlice({
         state.status = 'succeeded';
         state.error = null;
         state.activeConversation = action.payload;
+        state.files = [];
       })
       .addCase(open_create_conversation.rejected, (state, action) => {
         state.status = 'failed';
@@ -135,6 +147,9 @@ export const {
   setOnlineUsers,
   addConversationTyping,
   removeConversationTyping,
+  addFiles,
+  clearFiles,
+  removeFileByIndex,
 } = chatSlice.actions;
 
 export default chatSlice.reducer;
