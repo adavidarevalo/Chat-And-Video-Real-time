@@ -1,5 +1,3 @@
-/** @format */
-
 import { User } from './user.type';
 
 export interface Sender {

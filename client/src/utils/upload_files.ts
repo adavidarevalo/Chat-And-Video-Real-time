@@ -1,5 +1,3 @@
-/** @format */
-
 import axios from 'axios';
 
 export const uploadFiles = async (files: any[]) => {
@@ -20,11 +18,11 @@ export const uploadFiles = async (files: any[]) => {
   return uploaded;
 };
 
-const uploadCloudinary = async (formData: any): Promise<void> => {
+const uploadCloudinary = async (formData: FormData): Promise<void> => {
   try {
     const { data } = await axios.post(
       `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/raw/upload`,
-      formData
+      formData,
     );
     return data;
   } catch (error) {

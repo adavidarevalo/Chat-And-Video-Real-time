@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { AppState } from '../../../../../../redux/store';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -32,7 +32,8 @@ export default function HandleAndSend({ loading, activeIndex, setActiveIndex }: 
             onClick={() => setActiveIndex(index)}
             className={`fileThumbnail relative mt-2 w-14 h-14 border dark:border-white rounded-md overflow-hidden cursor-pointer ${
               activeIndex === index && 'border-[3px] !border-green_1'
-            }`}>
+            }`}
+          >
             {file.type === 'IMAGE' ? (
               <img src={file.fileData} alt={files[0]?.files?.name} className="w-full h-full object-cover" />
             ) : file.type === 'VIDEO' ? (
@@ -50,7 +51,8 @@ export default function HandleAndSend({ loading, activeIndex, setActiveIndex }: 
       <button
         type="submit"
         disabled={loading}
-        className="bg-green_1 w-16 h-16 mt-2 rounded-full flex items-center justify-center cursor-pointer">
+        className="bg-green_1 w-16 h-16 mt-2 rounded-full flex items-center justify-center cursor-pointer"
+      >
         {loading ? <ClipLoader color="#E9EDEF" size={25} /> : <SendIcon className="fill-white" />}
       </button>
     </div>

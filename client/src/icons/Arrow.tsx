@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-export default function ArrowIcon({ className }: {className: string}) {
+export default function ArrowIcon({ className }: { className: string }) {
   return (
     <svg
       viewBox="0 0 8 12"
@@ -14,10 +14,7 @@ export default function ArrowIcon({ className }: {className: string}) {
       enableBackground="new 0 0 8 12"
       xmlSpace="preserve"
     >
-      <path
-        className={className}
-        d="M2.173,1l4.584,4.725L2.142,10.34L1.039,9.237l3.512-3.512L1,2.173L2.173,1z"
-      />
+      <path className={className} d="M2.173,1l4.584,4.725L2.142,10.34L1.039,9.237l3.512-3.512L1,2.173L2.173,1z" />
     </svg>
   );
 }

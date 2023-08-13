@@ -1,6 +1,3 @@
-/** @format */
-
-import React from 'react';
 import { Logo } from '../../icons';
 
 export function WelcomeWhatsappHome() {

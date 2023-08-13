@@ -1,5 +1,3 @@
-/** @format */
-
 import { createSlice } from '@reduxjs/toolkit';
 import {
   getConversationMessages,
@@ -53,7 +51,7 @@ export const chatSlice = createSlice({
       }
 
       const conversationToUpdate = { ...action.payload.conversation, latestMessage: action.payload };
-      const newConversation = [...state.conversations].filter(c => c._id !== conversationToUpdate._id);
+      const newConversation = [...state.conversations].filter((c) => c._id !== conversationToUpdate._id);
 
       newConversation.unshift(conversationToUpdate);
       state.conversations = newConversation;
@@ -62,26 +60,26 @@ export const chatSlice = createSlice({
       state.onlineUsers = payload;
     },
     addConversationTyping: (state, { payload }) => {
-      if (!state.conversationTyping.some(conversationId => conversationId === payload)) {
+      if (!state.conversationTyping.some((conversationId) => conversationId === payload)) {
         state.conversationTyping.push(payload);
       }
     },
     removeConversationTyping: (state, { payload }) => {
-      state.conversationTyping = state.conversationTyping.filter(c => c !== payload);
+      state.conversationTyping = state.conversationTyping.filter((c) => c !== payload);
     },
     addFiles: (state, { payload }) => {
       state.files = [...state.files, payload];
     },
-    clearFiles: state => {
+    clearFiles: (state) => {
       state.files = [];
     },
     removeFileByIndex: (state, { payload }) => {
       state.files = state.files.filter((_, index) => index !== payload);
     },
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(getConversations.pending, state => {
+      .addCase(getConversations.pending, (state) => {
         state.status = 'loading';
         state.error = null;
       })
@@ -94,7 +92,7 @@ export const chatSlice = createSlice({
         state.status = 'failed';
         state.error = action.payload as string;
       })
-      .addCase(open_create_conversation.pending, state => {
+      .addCase(open_create_conversation.pending, (state) => {
         state.status = 'loading';
         state.error = null;
       })
@@ -108,7 +106,7 @@ export const chatSlice = createSlice({
         state.status = 'failed';
         state.error = action.payload as string;
       })
-      .addCase(getConversationMessages.pending, state => {
+      .addCase(getConversationMessages.pending, (state) => {
         state.status = 'loading';
         state.error = null;
       })
@@ -121,7 +119,7 @@ export const chatSlice = createSlice({
         state.status = 'failed';
         state.error = action.payload as string;
       })
-      .addCase(sendMessage.pending, state => {
+      .addCase(sendMessage.pending, (state) => {
         state.status = 'loading';
         state.error = null;
       })
@@ -129,7 +127,7 @@ export const chatSlice = createSlice({
         state.status = 'succeeded';
         state.messages = [...state.messages, payload];
         const conversation = { ...payload.conversation, latestMessage: payload };
-        const newConversation = [...state.conversations].filter(c => c._id !== conversation._id);
+        const newConversation = [...state.conversations].filter((c) => c._id !== conversation._id);
 
         newConversation.unshift(conversation);
         state.conversations = newConversation;

@@ -1,4 +1,4 @@
-export default function NotificationIcon({ className }: {className: string}) {
+export default function NotificationIcon({ className }: { className: string }) {
   return (
     <svg
       viewBox="0 0 48 48"

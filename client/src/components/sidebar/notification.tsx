@@ -1,5 +1,5 @@
-import React from 'react'
-import { ArrowIcon, CloseIcon, NotificationIcon } from '../../icons'
+import React from 'react';
+import { ArrowIcon, CloseIcon, NotificationIcon } from '../../icons';
 
 export default function SidebarNotification() {
   return (
@@ -7,7 +7,7 @@ export default function SidebarNotification() {
       <div className="w-full flex items-center justify-between">
         <div className="flex items-center gap-x-4">
           <div className="cursor-pointer">
-          <NotificationIcon className="dark:fill-blue_1" />
+            <NotificationIcon className="dark:fill-blue_1" />
           </div>
           <div className="flex flex-col">
             <span className="textPrimary">Get notified of new messages</span>

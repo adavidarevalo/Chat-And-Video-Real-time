@@ -1,5 +1,3 @@
-/** @format */
-
 import { Conversation } from './conversation.type';
 import { User } from './user.type';
 

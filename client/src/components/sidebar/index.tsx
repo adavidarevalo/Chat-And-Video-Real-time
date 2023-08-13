@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import SidebarHeader from './header'
-import SidebarNotification from './notification'
-import SidebarSearch from './search'
-import SidebarConversation from './conversation_list'
-import SearchResults from './search/results'
-import { User } from '../../types/user.type'
+import React, { useState } from 'react';
+import SidebarHeader from './header';
+import SidebarNotification from './notification';
+import SidebarSearch from './search';
+import SidebarConversation from './conversation_list';
+import SearchResults from './search/results';
+import { User } from '../../types/user.type';
 
 export default function Sidebar() {
   const [searchResults, setSearchResults] = useState<User[]>([]);

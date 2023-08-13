@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { UseFormRegister } from 'react-hook-form';
 
 interface InputCustomProps {
@@ -9,7 +9,7 @@ interface InputCustomProps {
   register: UseFormRegister<any>;
 }
 
-export default function InputCustom({name, type, placeholder, error, register}: InputCustomProps) {
+export default function InputCustom({ name, type, placeholder, error, register }: InputCustomProps) {
   return (
     <div className="mt-8 content-center dark:text-dark_text_1 space-y-1">
       <label htmlFor={name} className="text-sm font-bold tracking-wide">
@@ -18,9 +18,10 @@ export default function InputCustom({name, type, placeholder, error, register}: 
       <input
         type={type}
         {...register(name)}
-        placeholder={placeholder} 
+        placeholder={placeholder}
         className="w-full dark:bg-dark_bg_3 text-base py-2 px-4 rounded-lg outline-none"
       />
       {error && <p className="text-red-400">{error}</p>}
     </div>
-  );}
+  );
+}

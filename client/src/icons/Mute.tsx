@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-function MuteIcon({ className }: {className: string}) {
+function MuteIcon({ className }: { className: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="35">
       <g className={className}>

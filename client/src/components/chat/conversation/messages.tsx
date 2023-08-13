@@ -1,6 +1,4 @@
-/** @format */
-
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import Message from './message';
 import { AppState } from '../../../redux/store';
@@ -20,7 +18,7 @@ export default function ChatMessages() {
     if (endRef.current) {
       endRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  };  
+  };
 
   return (
     <div className={`mb-[60px] bg-[url("https://cdn.wallpapersafari.com/54/0/HluF7g.jpg")] h-[88vh]`}>

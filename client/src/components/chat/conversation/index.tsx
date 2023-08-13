@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react';
 import ChatHeader from './header';
 import ChatMessages from './messages';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,18 +16,18 @@ export default function ConversationContainer() {
 
   useEffect(() => {
     if (activeConversation?._id) {
-        const values = {
-          token: user?.token,
-          conversation_id: activeConversation?._id,
-        };
-        
+      const values = {
+        token: user?.token,
+        conversation_id: activeConversation?._id,
+      };
+
       dispatch(getConversationMessages(values) as any);
     }
   }, [activeConversation]);
 
   const insOnline = useMemo(() => {
     return onlineUsers.some(
-      ({ userId }) => userId === getConversationId(user as any, activeConversation?.users as any)
+      ({ userId }) => userId === getConversationId(user as any, activeConversation?.users as any),
     );
   }, [activeConversation, onlineUsers]);
 
@@ -36,7 +36,7 @@ export default function ConversationContainer() {
       <div>
         <ChatHeader insOnline={insOnline} />
         {files.length > 0 ? (
-          <FilesPreview/>
+          <FilesPreview />
         ) : (
           <>
             <ChatMessages />

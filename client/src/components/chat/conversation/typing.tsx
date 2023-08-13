@@ -1,9 +1,8 @@
 import moment from 'moment';
-import React from 'react'
+import React from 'react';
 import { TriangleIcon } from '../../../icons';
 import MessageType from '../../../types/message.type';
 import { BeatLoader } from 'react-spinners';
-
 
 export default function Typing() {
   return (

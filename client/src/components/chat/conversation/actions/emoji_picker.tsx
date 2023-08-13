@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { CloseIcon, EmojiIcon } from '../../../../icons'
+import React, { useEffect, useState } from 'react';
+import { CloseIcon, EmojiIcon } from '../../../../icons';
 import EmojiPicker, { EmojiClickData, Theme } from 'emoji-picker-react';
 
 interface EmojiPickerSelectorProps {
@@ -48,7 +48,8 @@ export default function EmojiPickerSelector({
             setShowAttachments(false);
           }
           setShowEmoji((prev: boolean) => !prev);
-        }}>
+        }}
+      >
         {showEmoji ? <CloseIcon className="dark:fill-dark_svg_1" /> : <EmojiIcon className="dark:fill-dark_svg_1" />}
       </button>
       {showEmoji && (

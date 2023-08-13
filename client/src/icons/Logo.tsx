@@ -1,11 +1,6 @@
 export default function Logo() {
   return (
-    <svg
-      viewBox="0 0 303 172"
-      width={360}
-      preserveAspectRatio="xMidYMid meet"
-      fill="none"
-    >
+    <svg viewBox="0 0 303 172" width={360} preserveAspectRatio="xMidYMid meet" fill="none">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

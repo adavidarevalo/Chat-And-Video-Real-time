@@ -1,5 +1,5 @@
-import React from 'react'
-import { AttachmentIcon } from '../../../../../icons'
+import React from 'react';
+import { AttachmentIcon } from '../../../../../icons';
 import AttachmentsMenu from './menu';
 
 interface AttachmentsProps {
@@ -9,7 +9,12 @@ interface AttachmentsProps {
   showAttachments: boolean;
 }
 
-export default function Attachments({ showEmoji, setShowEmoji, showAttachments, setShowAttachments }: AttachmentsProps) {
+export default function Attachments({
+  showEmoji,
+  setShowEmoji,
+  showAttachments,
+  setShowAttachments,
+}: AttachmentsProps) {
   return (
     <li className="relative">
       <button
@@ -20,7 +25,8 @@ export default function Attachments({ showEmoji, setShowEmoji, showAttachments, 
             setShowEmoji(false);
           }
           setShowAttachments((prev) => !prev);
-        }}>
+        }}
+      >
         <AttachmentIcon className="dark:fill-dark_svg_1" />
       </button>
       {showAttachments && <AttachmentsMenu />}

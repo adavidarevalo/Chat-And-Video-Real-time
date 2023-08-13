@@ -1,5 +1,3 @@
-/** @format */
-
 import { createSlice } from '@reduxjs/toolkit';
 import { loginUser, registerUser } from '../actions/user.actions';
 
@@ -26,7 +24,7 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    logout: state => {
+    logout: (state) => {
       state.user = null;
       state.status = '';
       state.error = '';
@@ -35,7 +33,7 @@ export const userSlice = createSlice({
       state.status = actions.payload;
     },
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
       .addCase(registerUser.pending, (state, action) => {
         state.status = 'loading';

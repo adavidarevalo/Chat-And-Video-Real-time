@@ -1,4 +1,4 @@
-export default function SeenIcon({ className }: {className: string}) {
+export default function SeenIcon({ className }: { className: string }) {
   return (
     <svg
       viewBox="0 0 18 18"

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import InputCustom from './input_custom';
@@ -13,50 +13,45 @@ import { changeStatus } from '../../redux/slices/user.slice';
 import { signUpSchema } from '../../schemas';
 
 export default function RegisterForm() {
-    const [picture, setPicture] = useState<any>()
-    const [readablePicture, setReadablePicture] = useState("");
+  const [picture, setPicture] = useState<File | null>(null);
+  const [readablePicture, setReadablePicture] = useState('');
 
-    const { status, error } = useSelector((state: AppState) => state.user);
+  const { status, error } = useSelector((state: AppState) => state.user);
 
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-      const {
-        register,
-        handleSubmit,
-        formState: { errors },
-      } = useForm({
-        resolver: yupResolver(signUpSchema),
-      });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(signUpSchema),
+  });
 
-    const onSubmit = async (data: {
-        name: string,
-        email: string,
-        status?: string,
-        password: string
-    }) => {
-      dispatch(changeStatus("loading"));
-      let picture = process.env.REACT_APP_DEFAULT_AVATAR;
-      if (picture) {
-        const pictureUploaded = await uploadImage()
-        picture = (pictureUploaded as any)?.secure_url
-      } 
-      const res = await dispatch(registerUser({ ...data, picture }) as any);
-      if (res?.payload?.user) {
-        navigate("/")
-      }
+  const onSubmit = async (data: { name: string; email: string; status?: string; password: string }) => {
+    dispatch(changeStatus('loading'));
+    let picture = process.env.REACT_APP_DEFAULT_AVATAR;
+    if (picture) {
+      const pictureUploaded = await uploadImage();
+      picture = pictureUploaded?.secure_url;
     }
-
-    const uploadImage = async () => {
-      const formData = new FormData()
-      formData.append('upload_preset', `${process.env.REACT_APP_CLOUD_SECRET}`);
-      formData.append("file", picture)
-      const { data } = await axios.post(
-        `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`, 
-        formData
-        );
-      return data;
+    const res = await dispatch(registerUser({ ...data, picture }) as any);
+    if (res?.payload?.user) {
+      navigate('/');
     }
+  };
+
+  const uploadImage = async () => {
+    const formData = new FormData();
+    formData.append('upload_preset', `${process.env.REACT_APP_CLOUD_SECRET}`);
+    formData.append('file', picture as File);
+    const { data } = await axios.post(
+      `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`,
+      formData,
+    );
+    return data;
+  };
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center overflow-hidden">
@@ -100,7 +95,8 @@ export default function RegisterForm() {
           <button
             className="w-full flex justify-center bg-green_1 text-gray-100 p-4 rounded-full tracking-wide font-semibold focus:outline-none hover:bg-green_2  shadow-lg cursor-pointer transition ease-in duration-3"
             type="submit"
-            disabled={status === 'loading'}>
+            disabled={status === 'loading'}
+          >
             {status === 'loading' ? <PulseLoader color="#ffff" /> : 'Sign Up'}
             Sign Up
           </button>

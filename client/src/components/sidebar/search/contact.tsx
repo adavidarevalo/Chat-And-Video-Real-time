@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { open_create_conversation } from '../../../redux/actions/chat.actions';
 import _ from 'lodash';
@@ -18,13 +18,14 @@ export default function Contact({ contact, setSearchResults }: any) {
     const newConversation = await dispatch(open_create_conversation(value) as any);
     socket?.socket.emit('join conversation', newConversation.payload._id);
 
-    setSearchResults([])
+    setSearchResults([]);
   };
 
   return (
     <li
       onClick={openConversation}
-      className="w-full list-none h-[72px] hover:dark:bg-dark_bg_2 cursor-pointer dark:text-dark_text_1 px-[10px]">
+      className="w-full list-none h-[72px] hover:dark:bg-dark_bg_2 cursor-pointer dark:text-dark_text_1 px-[10px]"
+    >
       <div className="flex-items-center gap-x-3 py-[10px]">
         <div className="flex items-center gap-x-3">
           <div className="relative w-[50px] rounded-full overflow-hidden">

@@ -1,12 +1,6 @@
-export default function CommunityIcon({ className }: {className: string}) {
+export default function CommunityIcon({ className }: { className: string }) {
   return (
-    <svg
-      viewBox="0 0 28 28"
-      height={28}
-      width={28}
-      preserveAspectRatio="xMidYMid meet"
-      fill="none"
-    >
+    <svg viewBox="0 0 28 28" height={28} width={28} preserveAspectRatio="xMidYMid meet" fill="none">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

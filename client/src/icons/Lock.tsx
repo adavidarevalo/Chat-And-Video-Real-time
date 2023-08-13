@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-function LockIcon({ className }: {className: string}) {
+function LockIcon({ className }: { className: string }) {
   return (
     <svg width="24" height="24" viewBox="0 0 28 35">
       <path

@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react'
-import _ from "lodash"
+import React, { useMemo } from 'react';
+import _ from 'lodash';
 import { dateHandler } from '../../../utils/date';
 import { useDispatch, useSelector } from 'react-redux';
 import { open_create_conversation } from '../../../redux/actions/chat.actions';
@@ -11,8 +11,8 @@ import { useSocket } from '../../../context/socket.context';
 
 interface ConversationItemProps {
   conversation: Conversation;
-  isOnline: boolean
-} 
+  isOnline: boolean;
+}
 
 export default function ConversationItem({ conversation, isOnline }: ConversationItemProps) {
   const dispatch = useDispatch();
@@ -40,7 +40,8 @@ export default function ConversationItem({ conversation, isOnline }: Conversatio
       onClick={openConversation}
       className={`list-none h-[72px] w-full dark:bg-dark_bg_1 hover:${
         activeConversation?._id !== conversation._id && 'dark:bg-dark_bg_2'
-      } dark:text-dark_1 px-[10px] ${activeConversation?._id === conversation._id && 'dark:bg-dark_hover_1'}`}>
+      } dark:text-dark_1 px-[10px] ${activeConversation?._id === conversation._id && 'dark:bg-dark_hover_1'}`}
+    >
       <div className="relative w-full flex items-center justify-between py-[10px]">
         <div className="flex items-center gap-x-3 ">
           <div className={`relative w-[80px] rounded-full overflow-hidden${isOnline && 'online'}`}>

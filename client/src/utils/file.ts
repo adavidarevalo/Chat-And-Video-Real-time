@@ -1,5 +1,3 @@
-/** @format */
-
 export const getFileType = (memType: string) => {
   switch (memType) {
     case 'text/plain':

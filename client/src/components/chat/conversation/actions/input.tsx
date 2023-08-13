@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useSocket } from '../../../../context/socket.context';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../../redux/store';
@@ -10,10 +10,10 @@ interface InputProps {
 }
 
 export default function Input({ message, setMessage, textRef }: InputProps) {
-  const [isTyping, setIsTyping] = useState(false)
-  const { activeConversation} = useSelector((state: AppState) => state.chat);
+  const [isTyping, setIsTyping] = useState(false);
+  const { activeConversation } = useSelector((state: AppState) => state.chat);
 
-    const socket = useSocket();
+  const socket = useSocket();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(e.target.value);
@@ -23,7 +23,7 @@ export default function Input({ message, setMessage, textRef }: InputProps) {
       socket?.socket.emit('typing', activeConversation?._id);
     }
 
-    const lastTypingTime = new Date().getTime()
+    const lastTypingTime = new Date().getTime();
     const timer = 2000;
     setTimeout(() => {
       const timeNow = new Date().getTime();
@@ -31,17 +31,16 @@ export default function Input({ message, setMessage, textRef }: InputProps) {
 
       if (timeDiff >= timer && isTyping) {
         socket?.socket.emit('stop typing', activeConversation?._id);
-        setIsTyping(false)
+        setIsTyping(false);
       }
     }, timer);
   };
 
-    useEffect(() => {
-      if (textRef.current) {
-        textRef.current.focus();
-      }
-    }, [activeConversation]);
-
+  useEffect(() => {
+    if (textRef.current) {
+      textRef.current.focus();
+    }
+  }, [activeConversation]);
 
   return (
     <div className="w-full">

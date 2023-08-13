@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-function CallIcon({ className }: {className: string}) {
+function CallIcon({ className }: { className: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="40">
       <path

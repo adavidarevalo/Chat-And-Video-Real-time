@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-export default function DotsIcon({ className }: {className: string}) {
+export default function DotsIcon({ className }: { className: string }) {
   return (
     <svg
       viewBox="0 0 24 24"

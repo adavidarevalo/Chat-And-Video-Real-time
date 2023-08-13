@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../../redux/slices/user.slice';
 
 export default function HeaderMenu() {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   return (
     <div className="absolute right-1 z-50 dark:bg-dark_bg_2 dark:bg-dark_text_1 shadow-md w-52">

@@ -1,5 +1,3 @@
-/** @format */
-
 import React from 'react';
 import { DownloadIcon } from '../../../../icons';
 import { File } from '../../../../types/message.type';

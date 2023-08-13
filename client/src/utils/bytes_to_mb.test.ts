@@ -1,5 +1,3 @@
-/** @format */
-
 import { bytesToMB } from './bytes_to_mb';
 
 describe('bytesToMB function', () => {

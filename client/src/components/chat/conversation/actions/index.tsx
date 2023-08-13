@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { useRef, useState } from 'react';
 import EmojiPicker from './emoji_picker';
 import Attachments from './attachments';
@@ -19,7 +17,7 @@ export default function ChatActions() {
   const { activeConversation, status } = useSelector((state: AppState) => state.chat);
   const { user } = useSelector((state: AppState) => state.user);
   const dispatch = useDispatch();
-    const socket = useSocket();
+  const socket = useSocket();
   const textRef = useRef<HTMLInputElement>(null);
 
   const handlerSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -35,12 +33,13 @@ export default function ChatActions() {
     socket?.socket.emit('send message', newMessage.payload);
     setMessage('');
     setLoading(false);
-    setShowEmoji(false)
+    setShowEmoji(false);
   };
   return (
     <form
       onSubmit={handlerSubmit}
-      className="dark:bg-dark_bg_2 h-[60px] w-full flex items-center absolute bottom-0 py-2 px-4 select-none">
+      className="dark:bg-dark_bg_2 h-[60px] w-full flex items-center absolute bottom-0 py-2 px-4 select-none"
+    >
       <div className="w-full flex items-center gap-x-2">
         <ul className="flex gap-x-2">
           <EmojiPicker

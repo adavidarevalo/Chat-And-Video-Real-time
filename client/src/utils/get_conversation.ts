@@ -1,5 +1,3 @@
-/** @format */
-
 import { User } from '../types/user.type';
 
 export const getConversationId = (user: User, users: User[]) => {

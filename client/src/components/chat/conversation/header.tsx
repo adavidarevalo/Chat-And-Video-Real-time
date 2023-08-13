@@ -1,20 +1,20 @@
-import React, { useMemo } from 'react'
+import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { DotsIcon, SearchLargeIcon } from '../../../icons';
 import _ from 'lodash';
 import { AppState } from '../../../redux/store';
 
 interface ChatHeaderProps {
-  insOnline: boolean
+  insOnline: boolean;
 }
 
 export default function ChatHeader({ insOnline }: ChatHeaderProps) {
   const { activeConversation, conversationTyping } = useSelector((state: AppState) => state.chat);
 
   const status = useMemo(() => {
-    if (conversationTyping.includes(activeConversation?._id || "")) return 'Typing...';
-    if(insOnline) return 'Online';
-    return ""
+    if (conversationTyping.includes(activeConversation?._id || '')) return 'Typing...';
+    if (insOnline) return 'Online';
+    return '';
   }, [insOnline, activeConversation, conversationTyping]);
 
   return (

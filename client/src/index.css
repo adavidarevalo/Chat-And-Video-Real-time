@@ -2,75 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components{
-    .container {
-      width: calc(100% - 38px);
-      max-width: 1600px;
-    }
-    .btn {
-        @apply w-[40px] h-[40px] rounded-full flex items-center justify-center active:bg-dark_hover_1;
-    }
-    .p16 {
-        @apply px-[16px];
-    }
-    .flex0030 {
-      flex: 0 0 30%;
-    }
-    .textPrimary {
-        font-size: 16px;
-        line-height: 21px;
-        @apply text-dark_text_1;
-    }
-    .textSecondary {
-        font-size: 14px;
-        line-height: 19px;
-        @apply text-dark_text_2;
-    }
-    .input {
-        @apply w-full dark:bg-dark_bg_2 p-1.5 dark:text-dark_text_1 rounded-lg flex-1 outline-none;
-    }
-    .conversation {
-        height: calc(100vh - 220px);
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-    .overflow_scrollbar {
-        height: calc(100vh - 155px);   
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-    .online {
-      border: 2px solid #00a884
-    }
-    .hview {
-      height: calc(100vh - 290px);
-      padding: 8px 0;
-    }
-    .fileThumbnail:hover .removeFileIcon {
-      display: block;
-    }
+@layer components {
+  .container {
+    width: calc(100% - 38px);
+    max-width: 1600px;
+  }
+  .btn {
+    @apply w-[40px] h-[40px] rounded-full flex items-center justify-center active:bg-dark_hover_1;
+  }
+  .p16 {
+    @apply px-[16px];
+  }
+  .flex0030 {
+    flex: 0 0 30%;
+  }
+  .textPrimary {
+    font-size: 16px;
+    line-height: 21px;
+    @apply text-dark_text_1;
+  }
+  .textSecondary {
+    font-size: 14px;
+    line-height: 19px;
+    @apply text-dark_text_2;
+  }
+  .input {
+    @apply w-full dark:bg-dark_bg_2 p-1.5 dark:text-dark_text_1 rounded-lg flex-1 outline-none;
+  }
+  .conversation {
+    height: calc(100vh - 220px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .overflow_scrollbar {
+    height: calc(100vh - 155px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .online {
+    border: 2px solid #00a884;
+  }
+  .hview {
+    height: calc(100vh - 290px);
+    padding: 8px 0;
+  }
+  .fileThumbnail:hover .removeFileIcon {
+    display: block;
+  }
 }
 
 .rotateAnimation {
-    animation: rotate .3s forwards;
+  animation: rotate 0.3s forwards;
 }
 
 @keyframes rotate {
-    0% {
-        transform: rotate(-90deg);
-    }
+  0% {
+    transform: rotate(-90deg);
+  }
 }
 
 .scrollbar::-webkit-scrollbar {
-    width: 5px;
+  width: 5px;
 }
 
 .scrollbar::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-    background-color: #444e54;
+  background-color: #444e54;
 }
 /* Emoji Picker */
 .epr-main {
@@ -91,7 +91,7 @@
   padding: 10px 0 !important;
 }
 .epr-category-nav .epr-active::after {
-  content: "";
+  content: '';
   width: 140px;
   height: 4px;
   background: #00a884;

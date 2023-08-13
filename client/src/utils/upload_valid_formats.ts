@@ -1,5 +1,3 @@
-/** @format */
-
 export const validDocumentsFormats =
   'application/pdf,text/plain,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-powerpoint';
 

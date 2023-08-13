@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import InputCustom from './input_custom';
@@ -10,7 +10,6 @@ import { loginUser } from '../../redux/actions/user.actions';
 import { loginSchema } from '../../schemas';
 
 export default function RegisterForm() {
-
   const { status, error } = useSelector((state: AppState) => state.user);
 
   const dispatch = useDispatch();
@@ -24,13 +23,10 @@ export default function RegisterForm() {
     resolver: yupResolver(loginSchema),
   });
 
-  const onSubmit = async (data: {
-    email:string;
-    password: string
-  }) => {
+  const onSubmit = async (data: { email: string; password: string }) => {
     const res = await dispatch(loginUser(data) as any);
 
-    if (res.payload) {      
+    if (res.payload) {
       navigate('/');
     }
   };
@@ -61,7 +57,8 @@ export default function RegisterForm() {
           <button
             className="w-full flex justify-center bg-green_1 text-gray-100 p-4 rounded-full tracking-wide font-semibold focus:outline-none hover:bg-green_2  shadow-lg cursor-pointer transition ease-in duration-3"
             type="submit"
-            disabled={status === 'loading'}>
+            disabled={status === 'loading'}
+          >
             {status === 'loading' ? <PulseLoader color="#ffff" /> : 'Sign Up'}
           </button>
           <p className="flex flex-col items-center justify-center mt-10 text-center text-md dark:text-dark_text_1">

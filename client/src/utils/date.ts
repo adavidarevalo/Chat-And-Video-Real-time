@@ -1,5 +1,3 @@
-/** @format */
-
 import moment from 'moment';
 
 export const dateHandler = (date: string) => {

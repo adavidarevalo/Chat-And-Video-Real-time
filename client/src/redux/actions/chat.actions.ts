@@ -1,5 +1,3 @@
-/** @format */
-
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -31,13 +29,13 @@ export const open_create_conversation = createAsyncThunk(
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
       return data;
     } catch (error: any) {
       return rejectWithValue(error.response.data.error.message);
     }
-  }
+  },
 );
 
 export const getConversationMessages = createAsyncThunk(
@@ -54,7 +52,7 @@ export const getConversationMessages = createAsyncThunk(
     } catch (error: any) {
       return rejectWithValue(error.response.data.error.message);
     }
-  }
+  },
 );
 
 export const sendMessage = createAsyncThunk('conversation/send', async (values: any, { rejectWithValue }) => {
@@ -71,7 +69,7 @@ export const sendMessage = createAsyncThunk('conversation/send', async (values: 
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      }
+      },
     );
     return data;
   } catch (error: any) {

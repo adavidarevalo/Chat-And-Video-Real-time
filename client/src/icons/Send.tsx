@@ -1,4 +1,4 @@
-function SendIcon({ className }: {className: string}) {
+function SendIcon({ className }: { className: string }) {
   return (
     <svg width="24" height="24" x="0" y="0" viewBox="0 0 24 24">
       <path

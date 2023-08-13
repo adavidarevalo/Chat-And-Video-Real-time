@@ -1,5 +1,5 @@
-import React from 'react'
-import { CloseIcon } from '../../../../../icons'
+import React from 'react';
+import { CloseIcon } from '../../../../../icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearFiles as clearFilesFn } from './../../../../../redux/slices/chat.slice';
 import { AppState } from '../../../../../redux/store';

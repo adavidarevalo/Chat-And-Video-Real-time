@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { useState } from 'react';
 import { FilterIcon, ReturnIcon, SearchIcon } from '../../../icons';
 import axios from 'axios';
@@ -53,7 +51,8 @@ export default function SidebarSearch({ searchLength, setSearchResults }: Sideba
             {show || searchLength > 0 ? (
               <span
                 className="w-8 flex items-center justify-center rotateAnimation cursor-pointer"
-                onClick={() => setSearchResults([])}>
+                onClick={() => setSearchResults([])}
+              >
                 <ReturnIcon className="fill-green_1 w-5" />
               </span>
             ) : (

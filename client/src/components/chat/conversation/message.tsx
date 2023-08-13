@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React from 'react'
+import React from 'react';
 import { TriangleIcon } from '../../../icons';
 import MessageType from './../../../types/message.type';
 
@@ -15,7 +15,8 @@ export default function Message({ message, isMe }: MessageProps) {
         <div
           className={`relative h-full dark:text-dark_text_1 p-2 rounded-lg min-w-[54px] ${
             isMe ? 'bg-green_3' : 'dark:bg-dark_bg_2'
-          }`}>
+          }`}
+        >
           <p className="float-left h-full text-sm pb-5 px-[5px]">{message.message}</p>
           <span className="absolute right-1.5 text-xs pt-6 bottom-1 text-dark_text_5">
             {moment(message.createdAt).format('HH:mm')}

@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { ReactNode } from 'react';
 import { io, Socket } from 'socket.io-client';
 import { createContext, useContext } from 'react';

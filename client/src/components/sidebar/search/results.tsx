@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 import Contact from './contact';
 import { User } from '../../../types/user.type';
 
- interface SearchResultsProps {
-   searchResults: User[];
-   setSearchResults: React.Dispatch<React.SetStateAction<User[]>>;
- }
+interface SearchResultsProps {
+  searchResults: User[];
+  setSearchResults: React.Dispatch<React.SetStateAction<User[]>>;
+}
 
 export default function SearchResults({ searchResults, setSearchResults }: SearchResultsProps) {
   return (

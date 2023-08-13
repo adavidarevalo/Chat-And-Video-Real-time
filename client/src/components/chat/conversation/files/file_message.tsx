@@ -1,5 +1,3 @@
-/** @format */
-
 import React from 'react';
 import moment from 'moment';
 import { TriangleIcon } from '../../../../icons';
@@ -23,7 +21,8 @@ const FileMessage: React.FC<FileMessageProps> = ({ isMe, message, fileMessage })
     <div className={`w-full flex mt-2 space-x-3 max-w-xs ${isMe && 'ml-auto justify-end'}`}>
       <div>
         <div
-          className={`relative h-full dark:text-dark_text_1 rounded-lg min-w-[54px] ${fileContainerStyle} ${imageVideoBgStyle}`}>
+          className={`relative h-full dark:text-dark_text_1 rounded-lg min-w-[54px] ${fileContainerStyle} ${imageVideoBgStyle}`}
+        >
           <div className={`h-full text-sm ${!isImageOrVideo && 'pb-5'}`}>
             <div className="bg-green_3">
               <p>{message.message}</p>

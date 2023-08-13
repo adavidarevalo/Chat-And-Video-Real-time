@@ -1,6 +1,6 @@
-import React from 'react'
-import { CameraIcon, ContactIcon, PollIcon, StickerIcon } from '../../../../../../icons'
-import PhotoAttachment from './photo'
+import React from 'react';
+import { CameraIcon, ContactIcon, PollIcon, StickerIcon } from '../../../../../../icons';
+import PhotoAttachment from './photo';
 import DocumentAttachment from './document';
 
 export default function AttachmentsMenu() {
@@ -16,7 +16,7 @@ export default function AttachmentsMenu() {
           <ContactIcon className="" />
         </button>
       </li>
-      <DocumentAttachment/>
+      <DocumentAttachment />
       <li>
         <button type={'button'} className="bg-[#D3396D] rounded-full">
           <CameraIcon className="" />
