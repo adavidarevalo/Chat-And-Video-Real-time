@@ -1,4 +1,3 @@
-import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import InputCustom from './input_custom';
@@ -9,7 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../redux/actions/user.actions';
 import { loginSchema } from '../../schemas';
 
-export default function RegisterForm() {
+export default function LoginForm() {
   const { status, error } = useSelector((state: AppState) => state.user);
 
   const dispatch = useDispatch();
@@ -59,7 +58,10 @@ export default function RegisterForm() {
             type="submit"
             disabled={status === 'loading'}
           >
-            {status === 'loading' ? <PulseLoader color="#ffff" /> : 'Sign Up'}
+            {status === 'loading' 
+            ? <PulseLoader color="#ffff" data-testid="login-loader"/> 
+            : 'Sign In'
+            }
           </button>
           <p className="flex flex-col items-center justify-center mt-10 text-center text-md dark:text-dark_text_1">
             <span>Don&apos;t you have an account?</span>

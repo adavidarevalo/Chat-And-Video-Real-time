@@ -49,7 +49,7 @@ app.use(async (req, res, next) => {
   next(createHttpError.NotFound('This route does not exist.'));
 });
 
-app.use(async (err: any, req: Request, res: Response, next: NextFunction) => {
+app.use(async (err: any, req: Request, res: Response, _: NextFunction) => {
   res.status(err.status || 500);
   res.send({
     error: {

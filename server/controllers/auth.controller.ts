@@ -45,7 +45,7 @@ export const register = async (
         access_token,
       },
     });
-  } catch (error: any) {
+  } catch (error) {
     next(error);
   }
 };
@@ -85,7 +85,7 @@ export const login = async (
         token: access_token,
       },
     });
-  } catch (error: any) {
+  } catch (error) {
     next(error);
   }
 };
@@ -100,7 +100,7 @@ export const logout = async (
       path: '/api/vi/auth/refreshToken',
     });
     res.status(200);
-  } catch (error: any) {
+  } catch (error) {
     next(error);
   }
 };
@@ -151,7 +151,7 @@ export const refreshToken = async (
         access_token,
       },
     });
-  } catch (error: any) {
+  } catch (error) {
     next(error);
   }
 };

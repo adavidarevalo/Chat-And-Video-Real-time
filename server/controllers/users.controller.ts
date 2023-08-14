@@ -19,7 +19,7 @@ export const searchUsers = async (
     const users = await searchUsersServices(keyword, (req as any).user.id);
 
     res.status(200).json(users);
-  } catch (error: any) {
+  } catch (error) {
     next(error);
   }
 };

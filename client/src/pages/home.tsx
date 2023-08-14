@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Sidebar from '../components/sidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { getConversations } from '../redux/actions/chat.actions';
@@ -6,6 +6,7 @@ import { WelcomeWhatsappHome } from './../components/chat/welcome';
 import ConversationContainer from '../components/chat/conversation';
 import { AppState } from '../redux/store';
 import { useSocket } from '../context/socket.context';
+import Call from '../components/chat/conversation/call/index';
 import {
   removeConversationTyping,
   addConversationTyping,
@@ -13,11 +14,21 @@ import {
   updateMessages,
 } from '../redux/slices/chat.slice';
 
+const callData = {
+  receivingCall: false,
+  callEnded: false,
+
+};
+
 export default function HomePage() {
   const dispatch = useDispatch();
 
   const socket = useSocket();
-
+  const [call, setCall] = useState(callData);
+  const [stream, setStream] = useState();
+  const [callAccepted, setCallAccepted] = useState(false)
+  const myVideo = useRef()
+  const userVideo = useRef();
   const { user } = useSelector((state: AppState) => state.user);
   const { activeConversation, onlineUsers } = useSelector((state: AppState) => state.chat);
 
@@ -47,11 +58,21 @@ export default function HomePage() {
   }, [user]);
 
   return (
-    <div className="min-h-screen dark:bg-dark_bg_1 flex items-center justify-center overflow-hidden">
-      <div className="container h-screen flex">
-        <Sidebar />
-        {activeConversation?._id ? <ConversationContainer /> : <WelcomeWhatsappHome />}
+    <>
+      <div className="min-h-screen dark:bg-dark_bg_1 flex items-center justify-center overflow-hidden">
+        <div className="container h-screen flex">
+          <Sidebar />
+          {activeConversation?._id ? <ConversationContainer /> : <WelcomeWhatsappHome />}
+        </div>
       </div>
-    </div>
+      <Call
+        call={call}
+        setCall={setCall}
+        stream={stream}
+        callAccepted={callAccepted}
+        userVideo={userVideo}
+        myVideo={myVideo}
+      />
+    </>
   );
 }

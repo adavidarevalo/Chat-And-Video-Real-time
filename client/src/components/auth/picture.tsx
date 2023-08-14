@@ -3,7 +3,7 @@ import { CloseIcon } from '../../icons';
 
 interface PictureProps {
   readablePicture: string;
-  setPicture: any;
+  setPicture: React.Dispatch<React.SetStateAction<File | null>>;
   setReadablePicture: React.Dispatch<React.SetStateAction<string>>;
 }
 
@@ -27,20 +27,21 @@ export default function Picture({ readablePicture, setPicture, setReadablePictur
     setPicture(pic);
     const reader = new FileReader();
     reader.readAsDataURL(pic);
-    reader.onload = (e: any) => {
+    reader.onload = (e: ProgressEvent<FileReader>) => {
+    if (e.target?.result && typeof e.target.result === 'string') {
       setReadablePicture(e.target.result);
-    };
+    }    };
   };
 
   const handleChangePic = () => {
-    setPicture('');
+    setPicture(null);
     setReadablePicture('');
     inputRef?.current?.click();
   };
 
   const handleDeleteImage = () => {
     setError('');
-    setPicture('');
+    setPicture(null);
     setReadablePicture('');
   };
 

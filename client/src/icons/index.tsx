@@ -27,6 +27,11 @@ import MuteIcon from './Mute';
 import NoVideoIcon from './NoVideo';
 import TriangleIcon from './triangle';
 import DownloadIcon from './Download';
+import ValidIcon from './Valid';
+import AddContactIcon from './AddConntact';
+import SpeakerIcon from './Speaker';
+import VideoDialIcon from './VideoDial';
+import DialIcon from './Dial';
 
 export {
   TriangleIcon,
@@ -58,4 +63,9 @@ export {
   MuteIcon,
   NoVideoIcon,
   DownloadIcon,
+  ValidIcon,
+  AddContactIcon,
+  SpeakerIcon,
+  VideoDialIcon,
+  DialIcon,
 };
