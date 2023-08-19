@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import ArrowIcon from '../../../../icons/Arrow';
 import { AddContactIcon, LockIcon } from '../../../../icons';
 

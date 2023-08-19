@@ -28,7 +28,7 @@ interface Message {
   sender: User;
   message: string;
   conversation: Conversation;
-  file: File[];
+  files: File[];
   createdAt: string;
   updatedAt: string;
   __v: number;

@@ -3,15 +3,16 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import InputCustom from './input_custom';
 import { PulseLoader } from 'react-spinners';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppState } from '../../redux/store';
+import { AppDispatch, AppState } from '../../redux/store';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../redux/actions/user.actions';
 import { loginSchema } from '../../schemas';
+import _ from 'lodash';
 
 export default function LoginForm() {
   const { status, error } = useSelector((state: AppState) => state.user);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
   const {
@@ -23,9 +24,9 @@ export default function LoginForm() {
   });
 
   const onSubmit = async (data: { email: string; password: string }) => {
-    const res = await dispatch(loginUser(data) as any);
+    const res = await dispatch(loginUser(data));
 
-    if (res.payload) {
+    if (res.payload && _.get(res, 'error.message') !== 'Rejected') {
       navigate('/');
     }
   };
@@ -58,14 +59,18 @@ export default function LoginForm() {
             type="submit"
             disabled={status === 'loading'}
           >
-            {status === 'loading' 
-            ? <PulseLoader color="#ffff" data-testid="login-loader"/> 
-            : 'Sign In'
-            }
+            {status === 'loading' ? (
+              <PulseLoader color="#ffff" data-testid="login-loader" />
+            ) : (
+              'Sign In'
+            )}
           </button>
           <p className="flex flex-col items-center justify-center mt-10 text-center text-md dark:text-dark_text_1">
             <span>Don&apos;t you have an account?</span>
-            <Link to="/register" className="hover:underline cursor-pointer transition ease-in duration-300">
+            <Link
+              to="/register"
+              className="hover:underline cursor-pointer transition ease-in duration-300"
+            >
               Sign Up
             </Link>
           </p>

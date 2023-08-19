@@ -1,7 +1,17 @@
-import React from 'react'
-import { ArrowIcon, DialIcon, MuteIcon, SpeakerIcon, VideoDialIcon } from '../../../../icons'
+import React from 'react';
+import {
+  ArrowIcon,
+  DialIcon,
+  MuteIcon,
+  SpeakerIcon,
+  VideoDialIcon,
+} from '../../../../icons';
 
-export default function CallActions() {
+interface CallActionsProps {
+  endCall: () => void;
+}
+
+export default function CallActions({ endCall }: CallActionsProps) {
   return (
     <div className="h-22 w-full absolute bottom-0 z-40 px-1">
       <div className="relative bg-[#222] px-4 pt-6 pb-14 rounded-xl">
@@ -24,7 +34,7 @@ export default function CallActions() {
               <MuteIcon className="fill-white w-5" />
             </button>
           </li>
-          <li>
+          <li onClick={endCall}>
             <button className="btn_secondary bg-red-600 rotate-[135deg]">
               <DialIcon className="fill-white w-6" />
             </button>

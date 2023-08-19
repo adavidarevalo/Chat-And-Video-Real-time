@@ -7,7 +7,7 @@ import { ProtectedHomePage } from './protected_route';
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <ProtectedHomePage element={<HomePage />} />,
+    element: <HomePage />,
   },
   {
     path: '/login',

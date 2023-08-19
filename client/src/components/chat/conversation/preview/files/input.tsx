@@ -5,7 +5,10 @@ interface InputFilePreviewProps {
   setMessage: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default function InputFilePreview({ message, setMessage }: InputFilePreviewProps) {
+export default function InputFilePreview({
+  message,
+  setMessage,
+}: InputFilePreviewProps) {
   return (
     <div className="w-full max-w-[60%] dark:bg-dark_hover_1 rounded-lg">
       <input

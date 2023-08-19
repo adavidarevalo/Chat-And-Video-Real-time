@@ -1,0 +1,48 @@
+{
+  "_id": "64d3ac87c674cf079fb21dd5",
+  "name": "Jose",
+  "picture": "https://res.cloudinary.com/dzmirfc34/image/upload/v1691356100/pwdzlicu8ip2lv7dm55a.jpg",
+  "isGroup": false,
+  "users": [
+    {
+      "_id": "64c91858a22823a5886ecf06",
+      "name": "David Arevalo",
+      "email": "davidarevaloc20@gmail.com",
+      "picture": "https://res.cloudinary.com/dzmirfc34/image/upload/v1691356100/pwdzlicu8ip2lv7dm55a.jpg",
+      "status": "",
+      "createdAt": "2023-08-01T14:36:08.293Z",
+      "updatedAt": "2023-08-01T14:36:08.293Z",
+      "__v": 0
+    },
+    {
+      "_id": "64c92fb0e1376a88c6f954b6",
+      "name": "Jose",
+      "email": "davidarevaloaasd20@gmail.com",
+      "picture": "https://res.cloudinary.com/dzmirfc34/image/upload/v1691356100/pwdzlicu8ip2lv7dm55a.jpg",
+      "status": "",
+      "createdAt": "2023-08-01T16:15:44.072Z",
+      "updatedAt": "2023-08-01T16:15:44.072Z",
+      "__v": 0
+    }
+  ],
+  "createdAt": "2023-08-09T15:11:03.706Z",
+  "updatedAt": "2023-08-10T22:50:11.498Z",
+  "__v": 0,
+  "latestMessage": {
+    "files": [],
+    "_id": "64d569a308daf18dcee801ef",
+    "sender": {
+      "_id": "64c91858a22823a5886ecf06",
+      "name": "David Arevalo",
+      "email": "davidarevaloc20@gmail.com",
+      "picture": "https://res.cloudinary.com/dzmirfc34/image/upload/v1691356100/pwdzlicu8ip2lv7dm55a.jpg",
+      "status": ""
+    },
+    "message": "s",
+    "conversation": "64d3ac87c674cf079fb21dd5",
+    "file": [],
+    "createdAt": "2023-08-10T22:50:11.439Z",
+    "updatedAt": "2023-08-10T22:50:11.439Z",
+    "__v": 0
+  }
+}

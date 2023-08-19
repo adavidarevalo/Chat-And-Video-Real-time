@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import InputCustom from './input_custom';
 import { PulseLoader } from 'react-spinners';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppState } from '../../redux/store';
+import { AppDispatch, AppState } from '../../redux/store';
 import { Link, useNavigate } from 'react-router-dom';
 import { registerUser } from '../../redux/actions/user.actions';
 import Picture from './picture';
@@ -18,7 +18,7 @@ export default function RegisterForm() {
 
   const { status, error } = useSelector((state: AppState) => state.user);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
   const {
@@ -29,14 +29,21 @@ export default function RegisterForm() {
     resolver: yupResolver(signUpSchema),
   });
 
-  const onSubmit = async (data: { name: string; email: string; status?: string; password: string }) => {
+  const onSubmit = async (data: {
+    name: string;
+    email: string;
+    status?: string;
+    password: string;
+  }) => {
     dispatch(changeStatus('loading'));
-    let picture = process.env.REACT_APP_DEFAULT_AVATAR;
+    let defaultPicture = process.env.REACT_APP_DEFAULT_AVATAR;
     if (picture) {
       const pictureUploaded = await uploadImage();
-      picture = pictureUploaded?.secure_url;
+      defaultPicture = pictureUploaded?.secure_url;
     }
-    const res = await dispatch(registerUser({ ...data, picture }) as any);
+    const res = await dispatch(
+      registerUser({ ...data, picture: defaultPicture }),
+    );
     if (res?.payload?.user) {
       navigate('/');
     }
@@ -89,7 +96,11 @@ export default function RegisterForm() {
             register={register}
             error={errors?.password?.message}
           />
-          <Picture readablePicture={readablePicture} setPicture={setPicture} setReadablePicture={setReadablePicture} />
+          <Picture
+            readablePicture={readablePicture}
+            setPicture={setPicture}
+            setReadablePicture={setReadablePicture}
+          />
 
           {error && <p className="text-red-400 text-center">{error}</p>}
           <button
@@ -98,11 +109,13 @@ export default function RegisterForm() {
             disabled={status === 'loading'}
           >
             {status === 'loading' ? <PulseLoader color="#ffff" /> : 'Sign Up'}
-            Sign Up
           </button>
           <p className="flex flex-col items-center justify-center mt-10 text-center text-md dark:text-dark_text_1">
             <span>Have an Account?</span>
-            <Link to="/login" className="hover:underline cursor-pointer transition ease-in duration-300">
+            <Link
+              to="/login"
+              className="hover:underline cursor-pointer transition ease-in duration-300"
+            >
               Sign In
             </Link>
           </p>

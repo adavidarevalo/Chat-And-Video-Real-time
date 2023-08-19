@@ -2,7 +2,12 @@ import React from 'react';
 
 function AddContactIcon({ className }: { className: string }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="13" viewBox="0 0 24 13">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="13"
+      viewBox="0 0 24 13"
+    >
       <g fill="none" fillRule="evenodd" stroke="none" strokeWidth="1">
         <g transform="translate(-576 -4103)">
           <g transform="translate(100 4044)">

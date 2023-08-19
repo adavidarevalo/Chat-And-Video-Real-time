@@ -20,7 +20,10 @@ export default function HeaderMenu() {
         <li className="py-3 pl-5 cursor-pointer hover:bg-dark_bg_3">
           <span>Settings</span>
         </li>
-        <li className="py-3 pl-5 cursor-pointer hover:bg-dark_bg_3" onClick={() => dispatch(logout())}>
+        <li
+          className="py-3 pl-5 cursor-pointer hover:bg-dark_bg_3"
+          onClick={() => dispatch(logout())}
+        >
           <span>Logout</span>
         </li>
       </ul>

@@ -16,7 +16,10 @@ export default function DocumentIcon() {
         </defs>
         <clipPath id="document-SVGID_2_"></clipPath>
         <g clip-path="url(#document-SVGID_2_)">
-          <path fill="#5157AE" d="M26.5-1.1C11.9-1.1-1.1,5.6-1.1,27.6h55.2C54,8.6,41.1-1.1,26.5-1.1z"></path>
+          <path
+            fill="#5157AE"
+            d="M26.5-1.1C11.9-1.1-1.1,5.6-1.1,27.6h55.2C54,8.6,41.1-1.1,26.5-1.1z"
+          ></path>
           <path
             fill="#5F66CD"
             d="M53,26.5H-1.1c0,14.6,13,27.6,27.6,27.6s27.6-13,27.6-27.6C54.1,26.5,53,26.5,53,26.5z"

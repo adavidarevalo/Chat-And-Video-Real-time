@@ -1,5 +1,9 @@
 import { User } from '../types/user.type';
-import { getConversationId, getConversationName, getConversationPicture } from './get_conversation';
+import {
+  getConversationId,
+  getConversationName,
+  getConversationPicture,
+} from './get_conversation';
 
 describe('Conversation Utils', () => {
   const user1: any = { _id: 'user1', name: 'User 1', picture: 'picture1' };

@@ -1,0 +1,232 @@
+[
+  {
+    "files": [],
+    "_id": "64d572ad22c8820bec77e8c2",
+    "sender": {
+      "_id": "64c91858a22823a5886ecf06",
+      "name": "David Arevalo",
+      "email": "davidarevaloc20@gmail.com",
+      "picture": "https://res.cloudinary.com/dzmirfc34/image/upload/v1691356100/pwdzlicu8ip2lv7dm55a.jpg",
+      "status": ""
+    },
+    "message": "asd",
+    "conversation": {
+      "_id": "64d572ab22c8820bec77e8bb",
+      "name": "Test",
+      "picture": "https://res.cloudinary.com/dkd5jblv5/image/upload/v1675976806/Default_ProfilePicture_gjngnb.png",
+      "isGroup": false,
+      "users": ["64c91858a22823a5886ecf06", "64c939b91852e58ac2591770"],
+      "createdAt": "2023-08-10T23:28:43.235Z",
+      "updatedAt": "2023-08-15T00:53:29.172Z",
+      "__v": 0,
+      "latestMessage": "64dacc89a8a77bdc549913b4"
+    },
+    "file": [],
+    "createdAt": "2023-08-10T23:28:45.544Z",
+    "updatedAt": "2023-08-10T23:28:45.544Z",
+    "__v": 0
+  },
+  {
+    "files": [],
+    "_id": "64d80f2003845f9a28962130",
+    "sender": {
+      "_id": "64c91858a22823a5886ecf06",
+      "name": "David Arevalo",
+      "email": "davidarevaloc20@gmail.com",
+      "picture": "https://res.cloudinary.com/dzmirfc34/image/upload/v1691356100/pwdzlicu8ip2lv7dm55a.jpg",
+      "status": ""
+    },
+    "message": "test",
+    "conversation": {
+      "_id": "64d572ab22c8820bec77e8bb",
+      "name": "Test",
+      "picture": "https://res.cloudinary.com/dkd5jblv5/image/upload/v1675976806/Default_ProfilePicture_gjngnb.png",
+      "isGroup": false,
+      "users": ["64c91858a22823a5886ecf06", "64c939b91852e58ac2591770"],
+      "createdAt": "2023-08-10T23:28:43.235Z",
+      "updatedAt": "2023-08-15T00:53:29.172Z",
+      "__v": 0,
+      "latestMessage": "64dacc89a8a77bdc549913b4"
+    },
+    "file": [],
+    "createdAt": "2023-08-12T23:00:48.130Z",
+    "updatedAt": "2023-08-12T23:00:48.130Z",
+    "__v": 0
+  },
+  {
+    "files": [],
+    "_id": "64d80f7b80c5c093b6fe98d1",
+    "sender": {
+      "_id": "64c91858a22823a5886ecf06",
+      "name": "David Arevalo",
+      "email": "davidarevaloc20@gmail.com",
+      "picture": "https://res.cloudinary.com/dzmirfc34/image/upload/v1691356100/pwdzlicu8ip2lv7dm55a.jpg",
+      "status": ""
+    },
+    "message": "test",
+    "conversation": {
+      "_id": "64d572ab22c8820bec77e8bb",
+      "name": "Test",
+      "picture": "https://res.cloudinary.com/dkd5jblv5/image/upload/v1675976806/Default_ProfilePicture_gjngnb.png",
+      "isGroup": false,
+      "users": ["64c91858a22823a5886ecf06", "64c939b91852e58ac2591770"],
+      "createdAt": "2023-08-10T23:28:43.235Z",
+      "updatedAt": "2023-08-15T00:53:29.172Z",
+      "__v": 0,
+      "latestMessage": "64dacc89a8a77bdc549913b4"
+    },
+    "file": [],
+    "createdAt": "2023-08-12T23:02:19.275Z",
+    "updatedAt": "2023-08-12T23:02:19.275Z",
+    "__v": 0
+  },
+  {
+    "_id": "64d80fa05345e871ead01149",
+    "sender": {
+      "_id": "64c91858a22823a5886ecf06",
+      "name": "David Arevalo",
+      "email": "davidarevaloc20@gmail.com",
+      "picture": "https://res.cloudinary.com/dzmirfc34/image/upload/v1691356100/pwdzlicu8ip2lv7dm55a.jpg",
+      "status": ""
+    },
+    "message": "test",
+    "conversation": {
+      "_id": "64d572ab22c8820bec77e8bb",
+      "name": "Test",
+      "picture": "https://res.cloudinary.com/dkd5jblv5/image/upload/v1675976806/Default_ProfilePicture_gjngnb.png",
+      "isGroup": false,
+      "users": ["64c91858a22823a5886ecf06", "64c939b91852e58ac2591770"],
+      "createdAt": "2023-08-10T23:28:43.235Z",
+      "updatedAt": "2023-08-15T00:53:29.172Z",
+      "__v": 0,
+      "latestMessage": "64dacc89a8a77bdc549913b4"
+    },
+    "files": [],
+    "createdAt": "2023-08-12T23:02:56.424Z",
+    "updatedAt": "2023-08-12T23:02:56.424Z",
+    "__v": 0
+  },
+  {
+    "_id": "64dacc89a8a77bdc549913b4",
+    "sender": {
+      "_id": "64c91858a22823a5886ecf06",
+      "name": "David Arevalo",
+      "email": "davidarevaloc20@gmail.com",
+      "picture": "https://res.cloudinary.com/dzmirfc34/image/upload/v1691356100/pwdzlicu8ip2lv7dm55a.jpg",
+      "status": ""
+    },
+    "message": "Hola",
+    "conversation": {
+      "_id": "64d572ab22c8820bec77e8bb",
+      "name": "Test",
+      "picture": "https://res.cloudinary.com/dkd5jblv5/image/upload/v1675976806/Default_ProfilePicture_gjngnb.png",
+      "isGroup": false,
+      "users": ["64c91858a22823a5886ecf06", "64c939b91852e58ac2591770"],
+      "createdAt": "2023-08-10T23:28:43.235Z",
+      "updatedAt": "2023-08-15T00:53:29.172Z",
+      "__v": 0,
+      "latestMessage": "64dacc89a8a77bdc549913b4"
+    },
+    "files": [],
+    "createdAt": "2023-08-15T00:53:29.120Z",
+    "updatedAt": "2023-08-15T00:53:29.120Z",
+    "__v": 0
+  },
+    {
+      "_id": "asdajsdklajsdlkjaalsdj",
+      "sender": {
+        "_id": "64c91858a22823a5886ecf06",
+        "name": "David Arevalo",
+        "email": "davidarevaloc20@gmail.com",
+        "picture": "https://res.cloudinary.com/dzmirfc34/image/upload/v1691356100/pwdzlicu8ip2lv7dm55a.jpg",
+        "status": ""
+      },
+      "message": "Hola",
+      "conversation": {
+        "_id": "64d572ab22c8820bec77e8bb",
+        "name": "Test",
+        "picture": "https://res.cloudinary.com/dkd5jblv5/image/upload/v1675976806/Default_ProfilePicture_gjngnb.png",
+        "isGroup": false,
+        "users": ["64c91858a22823a5886ecf06", "64c939b91852e58ac2591770"],
+        "createdAt": "2023-08-10T23:28:43.235Z",
+        "updatedAt": "2023-08-15T00:53:29.172Z",
+        "__v": 0,
+        "latestMessage": "64dacc89a8a77bdc549913b4"
+      },
+      "files": [
+            {
+                "file": {
+                    "asset_id": "f635f2a788c64940d560a6a755904025",
+                    "public_id": "cawooli92rtqs8wl73hf.pdf",
+                    "version": 1692104720,
+                    "version_id": "31cf8af51ce8c7c691d35738337fc81d",
+                    "signature": "c6eb152f38256ca7f558afa3dd3a924d34357e0a",
+                    "resource_type": "raw",
+                    "created_at": "2023-08-15T13:05:20Z",
+                    "tags": [],
+                    "bytes": 1197746,
+                    "type": "upload",
+                    "etag": "aef72f97739f693d4dbc01e45c7af6e7",
+                    "placeholder": false,
+                    "url": "http://res.cloudinary.com/dzmirfc34/raw/upload/v1692104720/cawooli92rtqs8wl73hf.pdf",
+                    "secure_url": "https://res.cloudinary.com/dzmirfc34/raw/upload/v1692104720/cawooli92rtqs8wl73hf.pdf",
+                    "folder": "",
+                    "original_filename": "AWS_certification_paths"
+                },
+                "type": "PDF"
+            }
+        ],
+      "createdAt": "2023-08-15T00:53:29.120Z",
+      "updatedAt": "2023-08-15T00:53:29.120Z",
+      "__v": 0
+    },
+    {
+      "_id": "asdajsdklajsdlkjalsdj",
+      "sender": {
+        "_id": "64c91858a22823a5886ecf06",
+        "name": "David Arevalo",
+        "email": "davidarevaloc20@gmail.com",
+        "picture": "https://res.cloudinary.com/dzmirfc34/image/upload/v1691356100/pwdzlicu8ip2lv7dm55a.jpg",
+        "status": ""
+      },
+      "message": "",
+      "conversation": {
+        "_id": "64d572ab22c8820bec77e8bb",
+        "name": "Test",
+        "picture": "https://res.cloudinary.com/dkd5jblv5/image/upload/v1675976806/Default_ProfilePicture_gjngnb.png",
+        "isGroup": false,
+        "users": ["64c91858a22823a5886ecf06", "64c939b91852e58ac2591770"],
+        "createdAt": "2023-08-10T23:28:43.235Z",
+        "updatedAt": "2023-08-15T00:53:29.172Z",
+        "__v": 0,
+        "latestMessage": "64dacc89a8a77bdc549913b4"
+      },
+      "files": [
+            {
+              "file": {
+                "asset_id": "1cce3839c828cefadd1b64cb8be5bd7f",
+                "public_id": "oqce4o4nwmklq5ypeiw8.jpeg",
+                "version": 1692230095,
+                "version_id": "37c6da750343363af9aba986b6713cb9",
+                "signature": "45c0ea78794c58ae5cbe25a170a981baee02af43",
+                "resource_type": "raw",
+                "created_at": "2023-08-16T23:54:55Z",
+                "tags": [],
+                "bytes": 9904,
+                "type": "upload",
+                "etag": "a2e3d9f86a67dc1b3d2811b929a6d6e4",
+                "placeholder": false,
+                "url": "http://res.cloudinary.com/dzmirfc34/raw/upload/v1692230095/oqce4o4nwmklq5ypeiw8.jpeg",
+                "secure_url": "https://res.cloudinary.com/dzmirfc34/raw/upload/v1692230095/oqce4o4nwmklq5ypeiw8.jpeg",
+                "folder": "",
+                "original_filename": "download"
+              },
+              "type": "IMAGE"
+            }
+      ],
+      "createdAt": "2023-08-15T00:53:29.120Z",
+      "updatedAt": "2023-08-15T00:53:29.120Z",
+      "__v": 0
+    }
+
+]

@@ -7,7 +7,10 @@ interface SearchResultsProps {
   setSearchResults: React.Dispatch<React.SetStateAction<User[]>>;
 }
 
-export default function SearchResults({ searchResults, setSearchResults }: SearchResultsProps) {
+export default function SearchResults({
+  searchResults,
+  setSearchResults,
+}: SearchResultsProps) {
   return (
     <div className="w-full conversation scrollbar">
       <div>
@@ -16,8 +19,12 @@ export default function SearchResults({ searchResults, setSearchResults }: Searc
           <span className="w-full mt-4 border-b dark:border-b-dark_border_1"></span>
           <ul>
             {searchResults &&
-              searchResults.map((user: any) => (
-                <Contact contact={user} setSearchResults={setSearchResults} key={user._id} />
+              searchResults.map((user) => (
+                <Contact
+                  contact={user}
+                  setSearchResults={setSearchResults}
+                  key={user._id}
+                />
               ))}
           </ul>
         </div>

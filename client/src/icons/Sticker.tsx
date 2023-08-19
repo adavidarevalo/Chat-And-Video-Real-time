@@ -5,7 +5,10 @@ export default function StickerIcon() {
     <svg width="53" height="53" fill="none" viewBox="0 0 53 53">
       <g clipPath="url(#clip0_850:74884)">
         <circle cx="26.5" cy="26.5" r="26.5" fill="#0063CB"></circle>
-        <path fill="#0070E6" d="M53 26.5C53 41.136 41.136 53 26.5 53S0 41.136 0 26.5h53z"></path>
+        <path
+          fill="#0070E6"
+          d="M53 26.5C53 41.136 41.136 53 26.5 53S0 41.136 0 26.5h53z"
+        ></path>
         <path
           fill="#F7F7F7"
           fillRule="evenodd"

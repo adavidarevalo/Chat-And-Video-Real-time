@@ -19,7 +19,10 @@ export default function CameraIcon({ className }: { className: string }) {
         </defs>
         <clipPath id="camera-SVGID_2_"></clipPath>
         <g clip-path="url(#camera-SVGID_2_)">
-          <path fill="#D3396D" d="M26.5-1.1C11.9-1.1-1.1,5.6-1.1,27.6h55.2C54,8.6,41.1-1.1,26.5-1.1z"></path>
+          <path
+            fill="#D3396D"
+            d="M26.5-1.1C11.9-1.1-1.1,5.6-1.1,27.6h55.2C54,8.6,41.1-1.1,26.5-1.1z"
+          ></path>
           <path
             fill="#EC407A"
             d="M53,26.5H-1.1c0,14.6,13,27.6,27.6,27.6s27.6-13,27.6-27.6C54.1,26.5,53,26.5,53,26.5z"

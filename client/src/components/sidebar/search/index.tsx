@@ -11,7 +11,10 @@ interface SidebarSearchProps {
   setSearchResults: React.Dispatch<React.SetStateAction<User[]>>;
 }
 
-export default function SidebarSearch({ searchLength, setSearchResults }: SidebarSearchProps) {
+export default function SidebarSearch({
+  searchLength,
+  setSearchResults,
+}: SidebarSearchProps) {
   const { user } = useSelector((state: AppState) => state.user);
   const [show, setShow] = useState(false);
 
@@ -23,11 +26,14 @@ export default function SidebarSearch({ searchLength, setSearchResults }: Sideba
     }
     if (value && e.key === 'Enter') {
       try {
-        const { data } = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/user?search=${value}`, {
-          headers: {
-            Authorization: `Bearer ${user?.token}`,
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API_ENDPOINT}/user?search=${value}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user?.token}`,
+            },
           },
-        });
+        );
         setSearchResults(data);
       } catch (error) {
         if (axios.isAxiosError(error)) {

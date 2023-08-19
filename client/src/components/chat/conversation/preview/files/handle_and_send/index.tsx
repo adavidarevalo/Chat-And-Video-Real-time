@@ -13,7 +13,11 @@ interface HandleAndSendProps {
   loading: boolean;
 }
 
-export default function HandleAndSend({ loading, activeIndex, setActiveIndex }: HandleAndSendProps) {
+export default function HandleAndSend({
+  loading,
+  activeIndex,
+  setActiveIndex,
+}: HandleAndSendProps) {
   const { files } = useSelector((state: AppState) => state.chat);
 
   const dispatch = useDispatch();
@@ -35,25 +39,40 @@ export default function HandleAndSend({ loading, activeIndex, setActiveIndex }: 
             }`}
           >
             {file.type === 'IMAGE' ? (
-              <img src={file.fileData} alt={files[0]?.files?.name} className="w-full h-full object-cover" />
+              <img
+                src={file.fileData}
+                alt={files[0]?.files?.name}
+                className="w-full h-full object-cover"
+              />
             ) : file.type === 'VIDEO' ? (
               <video src={files[activeIndex].fileData} />
             ) : (
-              <img src={`/images/file/${files[0].type}.png`} alt="Format document" className="w-8 h-10 mt-1.5 ml-2.5" />
+              <img
+                src={`/images/file/${files[0].type}.png`}
+                alt="Format document"
+                className="w-8 h-10 mt-1.5 ml-2.5"
+              />
             )}
-            <div onClick={() => handleRemoveFile(index)} className="removeFileIcon hidden">
+            <div
+              onClick={() => handleRemoveFile(index)}
+              className="removeFileIcon hidden"
+            >
               <CloseIcon className="dark:fill-white absolute right-0 top-0 w-4 h-4" />
             </div>
           </div>
         ))}
-        <Add setActiveIndex={setActiveIndex} />
+        <Add/>
       </div>
       <button
         type="submit"
         disabled={loading}
         className="bg-green_1 w-16 h-16 mt-2 rounded-full flex items-center justify-center cursor-pointer"
       >
-        {loading ? <ClipLoader color="#E9EDEF" size={25} /> : <SendIcon className="fill-white" />}
+        {loading ? (
+          <ClipLoader color="#E9EDEF" size={25} />
+        ) : (
+          <SendIcon className="fill-white" />
+        )}
       </button>
     </div>
   );

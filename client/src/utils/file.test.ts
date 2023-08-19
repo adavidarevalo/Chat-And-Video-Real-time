@@ -10,7 +10,11 @@ describe('getFileType', () => {
   });
 
   it('should return "DOCX" for "application/vnd.openxmlformats-officedocument.wordprocessingml.document"', () => {
-    expect(getFileType('application/vnd.openxmlformats-officedocument.wordprocessingml.document')).toBe('DOCX');
+    expect(
+      getFileType(
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      ),
+    ).toBe('DOCX');
   });
 
   it('should return "IMAGE" for unknown type', () => {

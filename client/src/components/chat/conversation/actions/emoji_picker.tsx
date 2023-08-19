@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { CloseIcon, EmojiIcon } from '../../../../icons';
 import EmojiPicker, { EmojiClickData, Theme } from 'emoji-picker-react';
+import _ from 'lodash';
+import { CloseIcon, EmojiIcon } from '../../../../icons';
 
 interface EmojiPickerSelectorProps {
-  textRef: React.RefObject<any>;
+  textRef: React.RefObject<HTMLInputElement>;
   message: string;
   setMessage: React.Dispatch<React.SetStateAction<string>>;
   showEmoji: boolean;
@@ -24,33 +25,35 @@ export default function EmojiPickerSelector({
   const [cursorPosition, setCursorPosition] = useState<number>();
 
   useEffect(() => {
-    textRef.current.selectionEnd = cursorPosition;
+    _.set(textRef, 'current.selectionEnd', cursorPosition);
   }, [cursorPosition]);
 
   const handleEmoji = (emojiData: EmojiClickData) => {
     const { emoji } = emojiData;
-    const ref = textRef.current;
-    ref.focus();
-    const start = message.substring(0, ref.selectionStart);
-    const end = message.substring(ref.selectionStart);
+    const ref = _.get(textRef, 'current');
+    ref!.focus();
+    const start = message.substring(0, _.get(ref, 'selectionStart') as number);
+    const end = message.substring(_.get(ref, 'selectionStart') as number);
 
     setMessage(`${start}${emoji}${end}`);
     setCursorPosition(start.length + emoji.length);
   };
 
+  const handleClick = () => {
+    if (showAttachments) {
+      setShowAttachments(false);
+    }
+    setShowEmoji((prev: boolean) => !prev);
+  }
+
   return (
     <li>
-      <button
-        className="btn"
-        type="button"
-        onClick={() => {
-          if (showAttachments) {
-            setShowAttachments(false);
-          }
-          setShowEmoji((prev: boolean) => !prev);
-        }}
-      >
-        {showEmoji ? <CloseIcon className="dark:fill-dark_svg_1" /> : <EmojiIcon className="dark:fill-dark_svg_1" />}
+      <button className="btn" type="button" onClick={handleClick}>
+        {showEmoji ? (
+          <CloseIcon className="dark:fill-dark_svg_1" />
+        ) : (
+          <EmojiIcon className="dark:fill-dark_svg_1" />
+        )}
       </button>
       {showEmoji && (
         <div className="absolute bottom-[60px] left-[-0.5px] w-full">

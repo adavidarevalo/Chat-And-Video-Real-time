@@ -12,6 +12,6 @@ export const signUpSchema = Yup.object({
     .required('Password is required')
     .matches(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
-      'Password must contain atleast 6 characters, 1 uppercase, 1 lowercase, 1 number and 1 special character.',
+      'Password must contain at least 6 characters, 1 uppercase, 1 lowercase, 1 number and 1 special character.',
     ),
 });

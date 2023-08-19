@@ -27,3 +27,6 @@ yarn-error.log
 *.iml
 *.ipr
 *.iws
+
+
+storybook-static

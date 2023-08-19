@@ -5,7 +5,7 @@ import InputFilePreview from './input';
 import HandleAndSend from './handle_and_send';
 import { uploadFiles } from '../../../../../utils/upload_files';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppState } from '../../../../../redux/store';
+import { AppDispatch, AppState } from '../../../../../redux/store';
 import { useSocket } from '../../../../../context/socket.context';
 import { sendMessage } from '../../../../../redux/actions/chat.actions';
 import { clearFiles } from '../../../../../redux/slices/chat.slice';
@@ -15,10 +15,12 @@ export default function FilesPreview() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [loading, setLoading] = useState(false);
 
-  const { files, activeConversation } = useSelector((state: AppState) => state.chat);
+  const { files, activeConversation } = useSelector(
+    (state: AppState) => state.chat,
+  );
   const { user } = useSelector((state: AppState) => state.user);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const socket = useSocket();
 
   const sendMessageHandler = async () => {
@@ -31,7 +33,7 @@ export default function FilesPreview() {
       files: uploaded_files,
     };
 
-    const newMessage = await dispatch(sendMessage(value) as any);
+    const newMessage = await dispatch(sendMessage(value));
     socket?.socket.emit('send message', newMessage.payload);
 
     dispatch(clearFiles());
@@ -51,7 +53,11 @@ export default function FilesPreview() {
           }}
         >
           <InputFilePreview message={message} setMessage={setMessage} />
-          <HandleAndSend activeIndex={activeIndex} setActiveIndex={setActiveIndex} loading={loading} />
+          <HandleAndSend
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+            loading={loading}
+          />
         </form>
       </div>
     </div>

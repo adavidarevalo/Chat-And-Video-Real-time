@@ -6,7 +6,10 @@ const isAuthenticated = () => {
   return true;
 };
 
-export const ProtectedHomePage: React.FC<RouteObject> = ({ element, ...route }) => {
+export const ProtectedHomePage: React.FC<RouteObject> = ({
+  element,
+  ...route
+}) => {
   if (!isAuthenticated()) {
     return <Navigate to="/login" />;
   }

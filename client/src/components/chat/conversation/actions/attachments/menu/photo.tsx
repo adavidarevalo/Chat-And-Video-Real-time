@@ -3,7 +3,7 @@ import { PhotoIcon } from '../../../../../../icons';
 import { useDispatch } from 'react-redux';
 import { addFiles } from '../../../../../../redux/slices/chat.slice';
 import { getFileType } from '../../../../../../utils/file';
-import { validImageFormats } from '../../../../../../utils/upload_valid_formats';
+import { validImageFormats } from '../../../../../../consts/upload_valid_formats';
 
 export default function PhotoAttachment() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -14,7 +14,10 @@ export default function PhotoAttachment() {
     let files = Array.from(e.target.files!);
 
     files.forEach((file) => {
-      if (!validImageFormats.includes(file.type) || file.size > 1024 * 1024 * 5) {
+      if (
+        !validImageFormats.includes(file.type) ||
+        file.size > 1024 * 1024 * 5
+      ) {
         files = files.filter((item) => item.name !== file.name);
         return;
       }
@@ -24,7 +27,8 @@ export default function PhotoAttachment() {
         dispatch(
           addFiles({
             file: file,
-            fileData: getFileType(file.type) === 'IMAGE' ? e.target?.result : '',
+            fileData:
+              getFileType(file.type) === 'IMAGE' ? e.target?.result : '',
             type: getFileType(file.type),
           }),
         );
@@ -42,7 +46,14 @@ export default function PhotoAttachment() {
         }}
       >
         <PhotoIcon />
-        <input type="file" hidden multiple ref={inputRef} accept={validImageFormats} onChange={imageHandler} />
+        <input
+          type="file"
+          hidden
+          multiple
+          ref={inputRef}
+          accept={validImageFormats}
+          onChange={imageHandler}
+        />
       </button>
     </li>
   );

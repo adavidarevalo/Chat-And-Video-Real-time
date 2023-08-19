@@ -3,7 +3,7 @@ import { DocumentIcon } from '../../../../../../icons';
 import { useDispatch } from 'react-redux';
 import { addFiles } from '../../../../../../redux/slices/chat.slice';
 import { getFileType } from '../../../../../../utils/file';
-import { validDocumentsFormats } from '../../../../../../utils/upload_valid_formats';
+import { validDocumentsFormats } from '../../../../../../consts/upload_valid_formats';
 
 export default function DocumentAttachment() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -14,7 +14,10 @@ export default function DocumentAttachment() {
     let files = Array.from(e.target.files!);
 
     files.forEach((file) => {
-      if (!validDocumentsFormats.includes(file.type) || file.size > 1024 * 1024 * 5) {
+      if (
+        !validDocumentsFormats.includes(file.type) ||
+        file.size > 1024 * 1024 * 5
+      ) {
         files = files.filter((item) => item.name !== file.name);
         return;
       }
@@ -41,7 +44,14 @@ export default function DocumentAttachment() {
         }}
       >
         <DocumentIcon />
-        <input type="file" hidden multiple ref={inputRef} accept={validDocumentsFormats} onChange={documentHandler} />
+        <input
+          type="file"
+          hidden
+          multiple
+          ref={inputRef}
+          accept={validDocumentsFormats}
+          onChange={documentHandler}
+        />
       </button>
     </li>
   );

@@ -11,7 +11,11 @@ export default function SidebarHeader() {
     <div className="h-[50px] dark:bg-dark_bg_2 flex items-center p16">
       <div className="w-full flex items-center justify-between">
         <button className="btn">
-          <img src={user?.picture} alt={user?.name} className="w-full h-full rounded-full object-cover" />
+          <img
+            src={user?.picture}
+            alt={user?.name}
+            className="w-full h-full rounded-full object-cover"
+          />
         </button>
         <ul className="flex items-center gap-x-2 5">
           <li>

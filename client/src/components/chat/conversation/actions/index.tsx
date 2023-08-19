@@ -6,7 +6,7 @@ import { SendIcon } from '../../../../icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { sendMessage } from '../../../../redux/actions/chat.actions';
 import { ClipLoader } from 'react-spinners';
-import { AppState } from '../../../../redux/store';
+import { AppDispatch, AppState } from '../../../../redux/store';
 import { useSocket } from '../../../../context/socket.context';
 
 export default function ChatActions() {
@@ -14,9 +14,11 @@ export default function ChatActions() {
   const [showAttachments, setShowAttachments] = useState(false);
   const [showEmoji, setShowEmoji] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { activeConversation, status } = useSelector((state: AppState) => state.chat);
+  const { activeConversation, status } = useSelector(
+    (state: AppState) => state.chat,
+  );
   const { user } = useSelector((state: AppState) => state.user);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const socket = useSocket();
   const textRef = useRef<HTMLInputElement>(null);
 
@@ -29,7 +31,7 @@ export default function ChatActions() {
       token: user?.token || '',
       files: [],
     };
-    const newMessage = await dispatch(sendMessage(value) as any);
+    const newMessage = await dispatch(sendMessage(value));
     socket?.socket.emit('send message', newMessage.payload);
     setMessage('');
     setLoading(false);

@@ -12,9 +12,15 @@ export default function Sidebar() {
     <div className="flex0030 max-w-[30%] h-full select-none">
       <SidebarHeader />
       <SidebarNotification />
-      <SidebarSearch searchLength={searchResults.length} setSearchResults={setSearchResults} />
+      <SidebarSearch
+        searchLength={searchResults.length}
+        setSearchResults={setSearchResults}
+      />
       {searchResults.length > 0 ? (
-        <SearchResults searchResults={searchResults} setSearchResults={setSearchResults} />
+        <SearchResults
+          searchResults={searchResults}
+          setSearchResults={setSearchResults}
+        />
       ) : (
         <SidebarConversation />
       )}

@@ -46,12 +46,20 @@ export const chatSlice = createSlice({
       if (!action.payload) return;
 
       const conversation = state.activeConversation;
-      if (conversation?._id === action.payload.conversation._id) {
+      if (
+        conversation?._id === action.payload.conversation._id &&
+        !state.messages.some(({ _id }) => _id === action.payload._id)
+      ) {
         state.messages = [...state.messages, action.payload];
       }
 
-      const conversationToUpdate = { ...action.payload.conversation, latestMessage: action.payload };
-      const newConversation = [...state.conversations].filter((c) => c._id !== conversationToUpdate._id);
+      const conversationToUpdate = {
+        ...action.payload.conversation,
+        latestMessage: action.payload,
+      };
+      const newConversation = [...state.conversations].filter(
+        (c) => c._id !== conversationToUpdate._id,
+      );
 
       newConversation.unshift(conversationToUpdate);
       state.conversations = newConversation;
@@ -60,12 +68,18 @@ export const chatSlice = createSlice({
       state.onlineUsers = payload;
     },
     addConversationTyping: (state, { payload }) => {
-      if (!state.conversationTyping.some((conversationId) => conversationId === payload)) {
+      if (
+        !state.conversationTyping.some(
+          (conversationId) => conversationId === payload,
+        )
+      ) {
         state.conversationTyping.push(payload);
       }
     },
     removeConversationTyping: (state, { payload }) => {
-      state.conversationTyping = state.conversationTyping.filter((c) => c !== payload);
+      state.conversationTyping = state.conversationTyping.filter(
+        (c) => c !== payload,
+      );
     },
     addFiles: (state, { payload }) => {
       state.files = [...state.files, payload];
@@ -126,8 +140,13 @@ export const chatSlice = createSlice({
       .addCase(sendMessage.fulfilled, (state, { payload }) => {
         state.status = 'succeeded';
         state.messages = [...state.messages, payload];
-        const conversation = { ...payload.conversation, latestMessage: payload };
-        const newConversation = [...state.conversations].filter((c) => c._id !== conversation._id);
+        const conversation = {
+          ...payload.conversation,
+          latestMessage: payload,
+        };
+        const newConversation = [...state.conversations].filter(
+          (c) => c._id !== conversation._id,
+        );
 
         newConversation.unshift(conversation);
         state.conversations = newConversation;
