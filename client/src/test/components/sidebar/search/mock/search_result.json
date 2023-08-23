@@ -1,0 +1,42 @@
+[
+  {
+    "_id": "64c939b91852e58ac2591770",
+    "name": "Test",
+    "email": "davaiasdaaadaloc20@gmail.com",
+    "picture": "https://res.cloudinary.com/dkd5jblv5/image/upload/v1675976806/Default_ProfilePicture_gjngnb.png",
+    "status": "Hey there! I am using whatsapp",
+    "createdAt": "2023-08-01T16:58:33.595Z",
+    "updatedAt": "2023-08-01T16:58:33.595Z",
+    "__v": 0
+  },
+  {
+    "_id": "64c939b91852e58asac2591770",
+    "name": "Test",
+    "email": "davaiasdaaadaloc20@gmail.com",
+    "picture": "https://res.cloudinary.com/dkd5jblv5/image/upload/v1675976806/Default_ProfilePicture_gjngnb.png",
+    "status": "Hey there! I am using whatsapp",
+    "createdAt": "2023-08-01T16:58:33.595Z",
+    "updatedAt": "2023-08-01T16:58:33.595Z",
+    "__v": 0
+  },
+  {
+    "_id": "64c939b91852e58ac25s91770",
+    "name": "Test",
+    "email": "davaiasdaaadaloc20@gmail.com",
+    "picture": "https://res.cloudinary.com/dkd5jblv5/image/upload/v1675976806/Default_ProfilePicture_gjngnb.png",
+    "status": "Hey there! I am using whatsapp",
+    "createdAt": "2023-08-01T16:58:33.595Z",
+    "updatedAt": "2023-08-01T16:58:33.595Z",
+    "__v": 0
+  },
+  {
+    "_id": "64c939b91852e58ac2591770d",
+    "name": "Test",
+    "email": "davaiasdaaadaloc20@gmail.com",
+    "picture": "https://res.cloudinary.com/dkd5jblv5/image/upload/v1675976806/Default_ProfilePicture_gjngnb.png",
+    "status": "Hey there! I am using whatsapp",
+    "createdAt": "2023-08-01T16:58:33.595Z",
+    "updatedAt": "2023-08-01T16:58:33.595Z",
+    "__v": 0
+  }
+]

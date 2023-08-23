@@ -1,12 +1,23 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { open_create_conversation } from '../../../redux/actions/chat.actions';
 import _ from 'lodash';
 import { useSocket } from '../../../context/socket.context';
-import { AppDispatch, AppState } from '../../../redux/store';
+import { AppState } from '../../../redux/store';
+import useAppDispatch from '../../../hooks/use_redux';
+import { User } from '../../../types/user.type';
 
-export default function Contact({ contact, setSearchResults }: any) {
-  const dispatch = useDispatch<AppDispatch>();
+interface ContactProps {
+  contact: User;
+  setSearchResults: React.Dispatch<React.SetStateAction<User[]>>;
+}
+
+export default function Contact({ contact, setSearchResults }: ContactProps) {
+  console.log(
+    '🚀 ~ file: contact.tsx:16 ~ Contact ~ contact:',
+    JSON.stringify(contact),
+  );
+  const dispatch = useAppDispatch();
   const socket = useSocket();
 
   const { user } = useSelector((state: AppState) => state.user);
@@ -16,9 +27,7 @@ export default function Contact({ contact, setSearchResults }: any) {
       receiver_id: contact._id,
       token: user!.token,
     };
-    const newConversation = await dispatch(
-      open_create_conversation(value)
-    );
+    const newConversation = await dispatch(open_create_conversation(value));
     socket?.socket.emit('join conversation', newConversation.payload._id);
 
     setSearchResults([]);

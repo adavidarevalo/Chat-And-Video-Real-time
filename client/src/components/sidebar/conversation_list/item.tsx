@@ -28,17 +28,19 @@ export default function ConversationItem({
   const { user } = useSelector((state: AppState) => state.user);
   const { activeConversation, conversationTyping } = useSelector(
     (state: AppState) => state.chat,
-  );
+    );
 
   const openConversation = async () => {
     const value = {
       receiver_id: getConversationId(user as User, conversation.users),
       token: user?.token || '',
     };
-    const newConversation = await dispatch(
-      open_create_conversation(value)
-    );
-    socket?.socket.emit('join conversation', newConversation.payload._id);
+    try {
+      const newConversation = await dispatch(open_create_conversation(value));
+      socket?.socket.emit('join conversation', newConversation.payload._id);
+    } catch (error) {
+      console.error(error)
+    }
   };
 
   const message = useMemo(() => {

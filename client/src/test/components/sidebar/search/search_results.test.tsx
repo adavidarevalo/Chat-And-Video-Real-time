@@ -10,7 +10,6 @@ import _ from 'lodash';
 
 const mockStore = configureMockStore([]);
 
-
 describe('SearchResults', () => {
   it('should render correctly', () => {
          const customState = {

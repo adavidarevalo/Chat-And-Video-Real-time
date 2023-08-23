@@ -15,6 +15,7 @@ export default function SidebarSearch({
   searchLength,
   setSearchResults,
 }: SidebarSearchProps) {
+
   const { user } = useSelector((state: AppState) => state.user);
   const [show, setShow] = useState(false);
 

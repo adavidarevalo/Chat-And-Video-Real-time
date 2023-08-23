@@ -17,7 +17,7 @@ export default function SidebarHeader() {
             className="w-full h-full rounded-full object-cover"
           />
         </button>
-        <ul className="flex items-center gap-x-2 5">
+        <ul className="flex items-center gap-x-2 5" data-testid="sidebar-list">
           <li>
             <button className="btn">
               <CommunityIcon className="dark:fill-dark_svg_1" />
@@ -34,7 +34,9 @@ export default function SidebarHeader() {
             </button>
           </li>
           <li className="relative" onClick={() => setShowMenu((prev) => !prev)}>
-            <button className={`btn ${showMenu ? 'bg-dark_hover_1' : ''}`}>
+            <button 
+            data-testid="open-menu-btn"
+            className={`btn ${showMenu ? 'bg-dark_hover_1' : ''}`}>
               <DotsIcon className="dark:fill-dark_svg_1" />
             </button>
             {showMenu && <HeaderMenu />}

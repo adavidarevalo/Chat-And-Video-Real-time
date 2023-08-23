@@ -1,8 +1,13 @@
 import { Meta, StoryObj } from '@storybook/react';
 import LoginForm from '../../../components/auth/login_form';
-import ProviderWrapper from '../../providers';
+import ProviderWrapper from '../../providers/index';
 
-const withProvider = () => <ProviderWrapper><LoginForm/></ProviderWrapper>;
+const withProvider = () => (
+  <ProviderWrapper>
+    <LoginForm />
+  </ProviderWrapper>
+);
+
 
 const meta = {
   title: 'Components/Auth/LoginForm',

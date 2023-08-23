@@ -11,6 +11,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.1.1",
     "@reduxjs/toolkit": "^1.9.5",
+    "addon-redux": "^2.0.11",
     "axios": "^1.4.0",
     "emoji-picker-react": "^4.4.10",
     "lodash": "^4.17.21",
@@ -46,6 +47,16 @@
       "react-app",
       "react-app/jest",
       "plugin:storybook/recommended"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {
@@ -65,8 +76,6 @@
     "@babel/plugin-transform-runtime": "^7.22.10",
     "@babel/preset-env": "^7.22.10",
     "@babel/preset-react": "^7.22.5",
-    "@chakra-ui/storybook-addon": "^5.0.1",
-    "@snek-at/storybook-addon-chakra-ui": "^1.1.0",
     "@storybook/addon-essentials": "^7.3.2",
     "@storybook/addon-interactions": "^7.3.2",
     "@storybook/addon-links": "^7.3.2",

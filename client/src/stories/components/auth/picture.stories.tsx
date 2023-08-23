@@ -2,15 +2,17 @@ import { Meta, StoryObj } from '@storybook/react';
 import ProviderWrapper from '../../providers';
 import Picture from '../../../components/auth/picture';
 
-const withProvider = () => (
-  <ProviderWrapper>
-    <Picture
-      readablePicture=""
-      setPicture={() => {}}
-      setReadablePicture={() => {}}
-    />
-  </ProviderWrapper>
-);
+const withProvider = () => {
+  return (
+    <ProviderWrapper>
+      <Picture
+        readablePicture={""}
+        setPicture={() => {}}
+        setReadablePicture={(r) => {}}
+      />
+    </ProviderWrapper>
+  );
+};
 
 const meta = {
   title: 'Components/Auth/Picture',

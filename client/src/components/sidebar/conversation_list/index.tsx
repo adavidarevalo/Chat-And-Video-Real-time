@@ -9,18 +9,18 @@ import { User } from '../../../types/user.type';
 export default function SidebarConversation() {
   const { conversations, onlineUsers } = useSelector(
     (state: AppState) => state.chat,
-  );
+    );
+
   const { user } = useSelector((state: AppState) => state.user);
 
   return (
     <div className="conversation scrollbar">
-      <ul>
+      <ul data-testid="conversation-list-container">
         {/* {(conversations || []).filter((c: any) => c.latestMessage || c._id === activeConversation._id).map((conversation: any) => ( */}
         {conversations &&
           conversations.map((conversation: Conversation) => {
             const isOnline = onlineUsers.some(
-              ({ userId }) =>
-                userId === getConversationId(user as User, conversation.users),
+              ({ userId }) => userId === getConversationId(user as User, conversation.users)
             );
             return (
               <ConversationItem

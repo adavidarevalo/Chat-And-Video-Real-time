@@ -1,6 +1,5 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import { UseFormRegister } from 'react-hook-form';
 import InputCustom from '../../../components/auth/input_custom';
 
 const meta = {
@@ -23,7 +22,7 @@ export const Primary: Story = {
   args: {
     name: 'te',
     type: 'text',
-    placeholder: 'test',
+    placeholder: 'Name',
     register: null,
   },
 };

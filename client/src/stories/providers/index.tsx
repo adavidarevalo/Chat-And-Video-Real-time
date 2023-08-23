@@ -2,15 +2,14 @@ import React from 'react'
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { store } from '../../redux/store';
-import { ChakraProvider } from '@chakra-ui/react';
+import "./../../index.css"
 
-const ProviderWrapper = ({ children }: { children: React.ReactNode }) => (
-  <Provider store={store}>
-    <ChakraProvider>
-      <Router>{children}</Router>
-    </ChakraProvider>
-  </Provider>
-);
+const ProviderWrapper = ({ children }: { children: React.ReactNode }) =>{ 
+    return (
+      <Provider store={store}>
+        <Router>{children}</Router>
+      </Provider>
+    );};
 
 
 export default ProviderWrapper;

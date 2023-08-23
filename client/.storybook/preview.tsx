@@ -1,4 +1,6 @@
+import React from 'react'
 import type { Preview } from '@storybook/react';
+import ProviderWrapper from '../src/stories/providers/index';
 
 const preview: Preview = {
   parameters: {
@@ -9,6 +11,7 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    decorators: [(story) => <ProviderWrapper>{story()}</ProviderWrapper>],
   },
 };
 
