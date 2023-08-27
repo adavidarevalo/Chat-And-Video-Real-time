@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import user from './../../../../test/components/chat/conversation/mocks/user.json';
-import contact from "./../../../../test/components/sidebar/search/mock/contact.json"
+import contact from "../../../../mocks/contact.json"
 import Contact from '../../../../components/sidebar/search/contact';
 const mockStore = configureMockStore([]);
 

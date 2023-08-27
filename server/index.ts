@@ -16,6 +16,8 @@ import router from './routes';
 import trimRequest from 'ts-trim-request';
 import { connectDatabase } from './config/database.config';
 import mongoose from 'mongoose';
+import swaggerUi from 'swagger-ui-express';
+import * as swaggerDocument from './swagger.json';
 
 dotenv.config();
 
@@ -44,6 +46,7 @@ app.use(
 );
 
 app.use('/api/v1', router);
+app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(async (req, res, next) => {
   next(createHttpError.NotFound('This route does not exist.'));

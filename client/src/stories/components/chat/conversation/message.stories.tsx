@@ -23,11 +23,9 @@ const meta = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Primary = {
+export const Primary: Meta = {
   args: {
+    message: messages[1],
     isMe: false,
-    message: messages[0] as any
   },
 };

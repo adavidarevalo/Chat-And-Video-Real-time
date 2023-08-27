@@ -4,7 +4,8 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import user from './../../../test/components/chat/conversation/mocks/user.json';
 import Sidebar from '../../../components/sidebar';
-import conversationList from "./../../../test/components/sidebar/conversation_list/mocks/conversation_list.json"
+import conversationList from "./../../../mocks/conversation_list.json"
+import "../../../index.css"
 
 const mockStore = configureMockStore([]);
 
@@ -25,7 +26,7 @@ const withProvider = () => {
 
   return (
     <Provider store={store}>
-      <Sidebar />
+        <Sidebar />
     </Provider>
   );
 };

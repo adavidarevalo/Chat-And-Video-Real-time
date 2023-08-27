@@ -2,8 +2,8 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Provider } from 'react-redux';
 import ConversationItem from '../../../../components/sidebar/conversation_list/item';
-import conversation from './../../../../test/components/sidebar/conversation_list/mocks/conversation.json';
-import activeConversation from './../../../../test/components/sidebar/conversation_list/mocks/active_conversation.json';
+import conversation from './../../../../mocks/conversation.json';
+import activeConversation from './../../../../mocks/active_conversation.json';
 import user from './../../../../test/components/chat/conversation/mocks/user.json';
 import configureMockStore from 'redux-mock-store';
 

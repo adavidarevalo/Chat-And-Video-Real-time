@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import user from './../../../../test/components/chat/conversation/mocks/user.json';
-import searchResult from './../../../../test/components/sidebar/search/mock/search_result.json';
+import searchResult from './../../../../mocks/search_result.json';
 import SearchResults from '../../../../components/sidebar/search/results';
 const mockStore = configureMockStore([]);
 

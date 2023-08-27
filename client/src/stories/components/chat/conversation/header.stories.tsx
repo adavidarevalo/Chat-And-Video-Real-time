@@ -3,16 +3,17 @@ import configureMockStore from 'redux-mock-store';
 import user from './../../../../test/components/chat/conversation/mocks/user.json';
 import { Provider } from 'react-redux';
 import ChatHeader from '../../../../components/chat/conversation/header';
+import activeConversation from "./../../../../mocks/active_conversation.json"
 
 const mockStore = configureMockStore([]);
 
-const withProvider = () => {
+const withProvider = ({ insOnline }: { insOnline: boolean }) => {
   const customState = {
     user: {
       user,
     },
     chat: {
-      activeConversation: null,
+      activeConversation,
       conversationTyping: [],
       onlineUsers: [],
     },
@@ -22,7 +23,7 @@ const withProvider = () => {
 
   return (
     <Provider store={store}>
-      <ChatHeader insOnline={false} callUser={() => {}}/>
+      <ChatHeader insOnline={insOnline} callUser={() => {}} />
     </Provider>
   );
 };
@@ -41,4 +42,8 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {};
+export const Primary: Story = {
+  args: {
+    insOnline: false
+  },
+};

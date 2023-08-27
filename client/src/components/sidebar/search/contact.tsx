@@ -13,10 +13,6 @@ interface ContactProps {
 }
 
 export default function Contact({ contact, setSearchResults }: ContactProps) {
-  console.log(
-    '🚀 ~ file: contact.tsx:16 ~ Contact ~ contact:',
-    JSON.stringify(contact),
-  );
   const dispatch = useAppDispatch();
   const socket = useSocket();
 

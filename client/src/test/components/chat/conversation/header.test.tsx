@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { renderWithProviders } from '../../../mocks/render_with_providers';
+import { renderWithProviders } from '../../../providers/render_with_providers';
 import '@testing-library/jest-dom/extend-expect';
 import ChatHeader from '../../../../components/chat/conversation/header';
 

@@ -5,7 +5,7 @@ import configureMockStore from 'redux-mock-store';
 import user from './../../chat/conversation/mocks/user.json';
 import { Provider } from 'react-redux';
 import SidebarConversation from '../../../../components/sidebar/conversation_list';
-import conversationList from './mocks/conversation_list.json';
+import conversationList from './../../../../mocks/conversation_list.json';
 
 const mockStore = configureMockStore([]);
 
@@ -45,12 +45,12 @@ describe('SidebarConversation', () => {
     expect(within(secondConversation).getByText('Jose')).toBeInTheDocument();
     expect(within(secondConversation).getByText('asd')).toBeInTheDocument();
     expect(
-      within(secondConversation).getByText('Wednesday'),
+      within(secondConversation).getByText('16/08/2023'),
     ).toBeInTheDocument();
 
     expect(within(thirdConversation).getByText('Jose')).toBeInTheDocument();
     expect(
-      within(thirdConversation).getByText('Wednesday'),
+      within(thirdConversation).getByText('16/08/2023'),
     ).toBeInTheDocument();
   });
 });

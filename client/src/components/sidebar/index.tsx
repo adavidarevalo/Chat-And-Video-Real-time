@@ -9,7 +9,7 @@ import { User } from '../../types/user.type';
 export default function Sidebar() {
   const [searchResults, setSearchResults] = useState<User[]>([]);
   return (
-    <div className="flex0030 max-w-[30%] h-full select-none">
+    <div className="flex0030 h-full select-none">
       <SidebarHeader />
       <SidebarNotification />
       <SidebarSearch

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { renderWithProviders } from '../../mocks/render_with_providers';
+import { renderWithProviders } from '../../providers/render_with_providers';
 import RegisterForm from '../../../components/auth/register_form';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';

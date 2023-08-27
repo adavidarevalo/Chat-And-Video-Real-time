@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import type { Preview } from '@storybook/react';
-import ProviderWrapper from '../src/stories/providers/index';
+import './../src/index.css';
 
 const preview: Preview = {
   parameters: {
@@ -11,8 +11,16 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
-    decorators: [(story) => <ProviderWrapper>{story()}</ProviderWrapper>],
   },
+  decorators: [
+    (Story, context) => {
+
+        const body = document.querySelector('body');
+        if (body) body.classList.add('dark');
+
+      return <Story />;
+    },
+  ],
 };
 
 export default preview;

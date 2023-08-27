@@ -1,5 +1,14 @@
 import { Meta, StoryObj } from '@storybook/react';
 import SidebarNotification from '../../../components/sidebar/notification';
+import ProviderWrapper from '../../providers';
+
+const withProvider = () => {
+  return (
+    <ProviderWrapper>
+      <SidebarNotification />
+    </ProviderWrapper>
+  );
+};
 
 const meta = {
   title: 'Components/Sidebar/Sidebar Notification',

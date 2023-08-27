@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { CloseIcon, EmojiIcon } from '../../../../icons';
 
 interface EmojiPickerSelectorProps {
-  textRef: React.RefObject<HTMLInputElement>;
+  textRef: React.RefObject<HTMLInputElement> | null;
   message: string;
   setMessage: React.Dispatch<React.SetStateAction<string>>;
   showEmoji: boolean;
@@ -25,7 +25,9 @@ export default function EmojiPickerSelector({
   const [cursorPosition, setCursorPosition] = useState<number>();
 
   useEffect(() => {
-    _.set(textRef, 'current.selectionEnd', cursorPosition);
+    if (textRef) {
+      _.set(textRef, 'current.selectionEnd', cursorPosition);
+    }
   }, [cursorPosition]);
 
   const handleEmoji = (emojiData: EmojiClickData) => {

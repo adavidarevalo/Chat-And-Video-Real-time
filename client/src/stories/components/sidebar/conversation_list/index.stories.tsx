@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import SidebarConversation from '../../../../components/sidebar/conversation_list';
 import configureMockStore from 'redux-mock-store';
 import user from './../../../../test/components/chat/conversation/mocks/user.json';
-import conversationList from "./../../../../test/components/sidebar/conversation_list/mocks/conversation_list.json"
-import activeConversation from './../../../../test/components/sidebar/conversation_list/mocks/active_conversation.json';
+import conversationList from "./../../../../mocks/conversation_list.json"
+import activeConversation from '../../../../mocks/active_conversation.json';
 
 const mockStore = configureMockStore([]);
 

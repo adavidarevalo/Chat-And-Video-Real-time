@@ -6,7 +6,7 @@ import { AppState } from '../../../../redux/store';
 interface InputProps {
   message: string;
   setMessage: React.Dispatch<React.SetStateAction<string>>;
-  textRef: React.RefObject<HTMLInputElement>;
+  textRef: React.RefObject<HTMLInputElement> | null;
 }
 
 export default function Input({ message, setMessage, textRef }: InputProps) {
@@ -37,7 +37,7 @@ export default function Input({ message, setMessage, textRef }: InputProps) {
   };
 
   useEffect(() => {
-    if (textRef.current) {
+    if (textRef?.current) {
       textRef.current.focus();
     }
   }, [activeConversation]);

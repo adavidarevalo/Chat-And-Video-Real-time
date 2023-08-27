@@ -1,63 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ConversationItem Validate user typing 1`] = `
-<div>
-  <li
-    class="list-none h-[72px] w-full dark:bg-dark_bg_1 hover:dark:bg-dark_bg_2 dark:text-dark_1 px-[10px] false"
-  >
-    <div
-      class="relative w-full flex items-center justify-between py-[10px]"
-    >
-      <div
-        class="flex items-center gap-x-3 "
-      >
-        <div
-          class="relative w-[80px] rounded-full overflow-hidden false"
-        >
-          <img
-            alt="Jose"
-            class="object-cover rounded-full h-full w-[50px]"
-            src="https://res.cloudinary.com/dzmirfc34/image/upload/v1691356100/pwdzlicu8ip2lv7dm55a.jpg"
-          />
-        </div>
-        <div
-          class="w-full flex flex-col"
-        >
-          <h1
-            class="font-bold flex items-center gap-x-2 dark:text-dark_text_3"
-          >
-            Jose
-          </h1>
-          <div>
-            <div
-              class="flex items-center gap-x-1 "
-            >
-              <div
-                class="flex-1 items-center gap-x-1 dark:text-dark_text_2"
-              >
-                <p />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="flex flex-col gap-y-4 items-end text-xs"
-      >
-        <span
-          class="dark:text-dark_text_2"
-        >
-          Wednesday
-        </span>
-      </div>
-    </div>
-    <div
-      class="ml-14 border-b  dark:border-b-dark_bg_2"
-    />
-  </li>
-</div>
-`;
-
 exports[`ConversationItem should render correctly 1`] = `
 <div>
   <li
@@ -105,7 +47,7 @@ exports[`ConversationItem should render correctly 1`] = `
         <span
           class="dark:text-dark_text_2"
         >
-          Wednesday
+          16/08/2023
         </span>
       </div>
     </div>

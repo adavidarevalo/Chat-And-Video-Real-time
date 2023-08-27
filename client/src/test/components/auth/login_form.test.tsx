@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { renderWithProviders } from '../../mocks/render_with_providers';
+import { renderWithProviders } from '../../providers/render_with_providers';
 import '@testing-library/jest-dom/extend-expect';
 import LoginForm from '../../../components/auth/login_form';
 import { setupServer } from 'msw/node';

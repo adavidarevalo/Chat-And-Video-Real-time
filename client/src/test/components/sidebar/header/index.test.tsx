@@ -52,8 +52,10 @@ describe('SidebarHeader', () => {
       </Provider>,
     );
 
-    // userEvent.click(document.querySelector('[data-testid="open-menu-btn"]'));
+    const clickBtn = await  screen.findByTestId('open-menu-btn');
 
-    // expect(await screen.findByTestId('sidebar-list')).toBeInTheDocument();
+    userEvent.click(clickBtn);
+
+    expect(await screen.findByTestId('sidebar-list')).toBeInTheDocument();
   });
 });
