@@ -28,7 +28,7 @@ export default function EmojiPickerSelector({
     if (textRef) {
       _.set(textRef, 'current.selectionEnd', cursorPosition);
     }
-  }, [cursorPosition]);
+  }, [cursorPosition, textRef]);
 
   const handleEmoji = (emojiData: EmojiClickData) => {
     const { emoji } = emojiData;

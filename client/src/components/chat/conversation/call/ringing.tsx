@@ -11,8 +11,6 @@ interface RingingProps {
 }
 
 export default function Ringing({ call, setCall, answerCall, endCall }: RingingProps) {
-  const { receivingCall, callEnded } = call;
-
   const [timer, setTimer] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 

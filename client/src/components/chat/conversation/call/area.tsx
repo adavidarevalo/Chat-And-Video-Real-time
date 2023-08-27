@@ -4,9 +4,9 @@ import CallTimes from './times';
 
 interface CallAreaProps {
   name: string;
-  totalSecondsInCall: number;
   callAccepted: boolean;
-  setTotalSecondsInCall: React.Dispatch<React.SetStateAction<number>>;
+  totalSecondsInCall: moment.Duration;
+  setTotalSecondsInCall: React.Dispatch<React.SetStateAction<moment.Duration>>;
 }
 
 export default function CallArea({
@@ -22,7 +22,7 @@ export default function CallArea({
           <h1 className="text-white text-lg">
             <b>{name && _.capitalize(name)}</b>
           </h1>
-          {totalSecondsInCall === 0 && (
+          {totalSecondsInCall.asMilliseconds() === 0 && (
             <span className="text-dark_text_1">Ringing...</span>
           )}
           <CallTimes

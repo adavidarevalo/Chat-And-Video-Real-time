@@ -10,13 +10,13 @@ interface CallProps {
   setCall: React.Dispatch<React.SetStateAction<ICall>>;
   stream: MediaStream | null;
   callAccepted: boolean;
-  myVideo: React.RefObject<HTMLVideoElement>
-  userVideo: React.RefObject<HTMLVideoElement>
+  myVideo: React.RefObject<HTMLVideoElement>;
+  userVideo: React.RefObject<HTMLVideoElement>;
   answerCall: () => void;
   endCall: () => void;
-  totalSecondsInCall: number;
-  setTotalSecondsInCall: React.Dispatch<React.SetStateAction<number>>;
-  show: boolean
+  totalSecondsInCall: moment.Duration;
+  setTotalSecondsInCall: React.Dispatch<React.SetStateAction<moment.Duration>>;
+  show: boolean;
 }
 
 export default function Call({
@@ -32,7 +32,7 @@ export default function Call({
   setTotalSecondsInCall,
   show,
 }: CallProps) {
-  const { receivingCall, callEnded } = call;
+  const { receivingCall, callEnded, name } = call;
 
   const [showCallActions, setShowCallActions] = useState(false);
   const [toggle, setToggle] = useState(false);
@@ -50,7 +50,7 @@ export default function Call({
           <div>
             <Header />
             <CallArea
-              name=""
+              name={name}
               totalSecondsInCall={totalSecondsInCall}
               setTotalSecondsInCall={setTotalSecondsInCall}
               callAccepted={callAccepted}
@@ -86,18 +86,18 @@ export default function Call({
             </div>
           </div>
         </div>
-        {receivingCall && !callAccepted && (
-          <Ringing
-            call={call}
-            setCall={setCall}
-            answerCall={answerCall}
-            endCall={endCall}
-          />
-        )}
-        {!callAccepted && show ? (
-          <audio src="/audio/ringing.mp3" autoPlay loop></audio>
-        ) : null}
       </div>
+      {receivingCall && !callAccepted && (
+        <Ringing
+          call={call}
+          setCall={setCall}
+          answerCall={answerCall}
+          endCall={endCall}
+        />
+      )}
+      {!callAccepted && show ? (
+        <audio src="/audio/ringing.mp3" autoPlay loop></audio>
+      ) : null}
     </>
   );
 }

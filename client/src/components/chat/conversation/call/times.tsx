@@ -2,9 +2,9 @@ import moment from 'moment';
 import React, { useEffect } from 'react'
 
 interface CallTimesProps {
-  totalSecondsInCall: number;
-  setTotalSecondsInCall: React.Dispatch<React.SetStateAction<number>>;
-  callAccepted: boolean
+  totalSecondsInCall: moment.Duration;
+  setTotalSecondsInCall: React.Dispatch<React.SetStateAction<moment.Duration>>;
+  callAccepted: boolean;
 }
 
 export default function CallTimes({
@@ -12,26 +12,32 @@ export default function CallTimes({
   setTotalSecondsInCall,
   callAccepted,
 }: CallTimesProps) {
-  useEffect(() => {
-    const setSecInCall = () => {
-      setTotalSecondsInCall((prev) => prev++);
-      setTimeout(setSecInCall, 1000);
-    };
-    if (callAccepted) {
-      setSecInCall();
-    }
-    return () => {
-      setTotalSecondsInCall(0);
-    };
-  }, [callAccepted]);
+ 
+    useEffect(() => {
+      if (callAccepted) {
+        const interval = setInterval(() => {
+          setTotalSecondsInCall((prevDuration) =>
+            prevDuration.add(1, 'second'),
+          );
+        }, 1000);
+        return () => {
+          clearInterval(interval);
+        };
+      }
+    }, [callAccepted, setTotalSecondsInCall]);
+
+  const formattedTime = moment
+    .utc(totalSecondsInCall.asMilliseconds())
+    .format('HH:mm:ss');
+  
 
   return (
     <div
       className={`text-dark_text_2 ${
-        totalSecondsInCall !== 0 ? 'block' : 'hidden'
+        totalSecondsInCall.asMilliseconds() !== 0 ? 'block' : 'hidden'
       }`}
     >
-      {moment(0).format('HH:mm:ss')}
+      <p>{formattedTime}</p>
     </div>
   );
 }

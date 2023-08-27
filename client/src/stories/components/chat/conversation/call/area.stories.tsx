@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import CallArea from '../../../../../components/chat/conversation/call/area';
+import moment from 'moment';
 
 const withProvider = ({
   name,
@@ -7,7 +8,7 @@ const withProvider = ({
   callAccepted,
 }: {
   name: string;
-  totalSecondsInCall: number;
+  totalSecondsInCall:  moment.Duration;
   callAccepted: boolean;
 }) => {
   return (
@@ -36,7 +37,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     name: 'Hello World!',
-    totalSecondsInCall: 0,
-    callAccepted: true
+    totalSecondsInCall: moment.duration(0),
+    callAccepted: true,
   },
 };

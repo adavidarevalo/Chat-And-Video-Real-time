@@ -16,7 +16,6 @@ export default function SidebarConversation() {
   return (
     <div className="conversation scrollbar">
       <ul data-testid="conversation-list-container">
-        {/* {(conversations || []).filter((c: any) => c.latestMessage || c._id === activeConversation._id).map((conversation: any) => ( */}
         {conversations &&
           conversations.map((conversation: Conversation) => {
             const isOnline = onlineUsers.some(

@@ -1,11 +1,10 @@
-function VideoCallIcon() {
+function VideoCallIcon({ className }: { className: string }) {
   return (
     <div data-testid="video-call-icon">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="stroke-blue-500 scale-[65%]"
+        className={className}
         fill="transparent"
-        stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="1"

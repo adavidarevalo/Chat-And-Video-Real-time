@@ -54,7 +54,6 @@ export default function ChatMessages() {
           <Typing />
         )}
         <div
-          className={'mt-2 bg-red-800'}
           ref={endRef}
           data-testid="scroll-element"
         ></div>

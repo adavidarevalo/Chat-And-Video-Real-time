@@ -40,7 +40,7 @@ export default function Input({ message, setMessage, textRef }: InputProps) {
     if (textRef?.current) {
       textRef.current.focus();
     }
-  }, [activeConversation]);
+  }, [activeConversation, textRef]);
 
   return (
     <div className="w-full">

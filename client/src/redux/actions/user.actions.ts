@@ -5,12 +5,24 @@ const AUTH_ENDPOINT = `${process.env.REACT_APP_API_ENDPOINT}/auth`;
 
 export const registerUser = createAsyncThunk(
   'auth/register',
-  async (values: any, { rejectWithValue }) => {
+  async (
+    values: {
+      name: string;
+      email: string;
+      status?: string | undefined;
+      password: string;
+      picture: string | undefined;
+    },
+    { rejectWithValue },
+  ) => {
     try {
       const { data } = await axios.post(`${AUTH_ENDPOINT}/register`, values);
       return data;
-    } catch (error: any) {
-      return rejectWithValue(error.response.data.error.message);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        return rejectWithValue(error.response?.data?.error?.message);
+      }
+      throw error;
     }
   },
 );

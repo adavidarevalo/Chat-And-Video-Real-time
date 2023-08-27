@@ -1,0 +1,20 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Mi API",
+    "version": "1.0.0"
+  },
+  "basePath": "/",
+  "paths": {
+    "/ruta-ejemplo": {
+      "get": {
+        "summary": "Obtener información de ejemplo",
+        "responses": {
+          "200": {
+            "description": "Respuesta exitosa"
+          }
+        }
+      }
+    }
+  }
+}

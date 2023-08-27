@@ -1,12 +1,13 @@
 //TODO
 import { Meta, StoryObj } from '@storybook/react';
 import CallTimes from '../../../../../components/chat/conversation/call/times';
+import moment from 'moment';
 
 const withProvider = ({
   totalSecondsInCall,
   callAccepted,
 }: {
-  totalSecondsInCall: number;
+  totalSecondsInCall: moment.Duration;
   callAccepted: boolean;
 }) => {
   return (
@@ -33,7 +34,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    totalSecondsInCall: 0,
+    totalSecondsInCall: moment.duration(0),
     callAccepted: true,
   },
 };

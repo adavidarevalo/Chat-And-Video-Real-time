@@ -22,50 +22,50 @@ export default function ChatHeader({ insOnline, callUser }: ChatHeaderProps) {
   }, [insOnline, activeConversation, conversationTyping]);
 
   return (
-      <div className="h-[52px] dark:bg-dark_bg_2 flex items-center p16 w-full select-none">
-        <div className="w-full flex items-center justify-between">
-          <div className="flex items-center gap-x-4">
-            <button className="btn">
-              <img
-                src={activeConversation?.picture}
-                alt={`${activeConversation?.name} avatar`}
-                className="w-full h-full rounded-full object-cover"
-              />
-            </button>
-            <div className="flex flex-col">
-              <h1 className="dark:text-white text-md font-bold">
-                {_.capitalize(activeConversation?.name.split(' ')[0])}
-              </h1>
-              <span className="text-xs dark:text-dark_svg_2">{status}</span>
-            </div>
+    <div className="h-[52px] dark:bg-dark_bg_2 flex items-center p16 w-full select-none">
+      <div className="w-full flex items-center justify-between">
+        <div className="flex items-center gap-x-4">
+          <button className="btn">
+            <img
+              src={activeConversation?.picture}
+              alt={`${activeConversation?.name} avatar`}
+              className="w-full h-full rounded-full object-cover"
+            />
+          </button>
+          <div className="flex flex-col">
+            <h1 className="dark:text-white text-md font-bold">
+              {_.capitalize(activeConversation?.name.split(' ')[0])}
+            </h1>
+            <span className="text-xs dark:text-dark_svg_2">{status}</span>
           </div>
-          <ul className="flex items-center gap-x-2.5">
-            {insOnline && (
-              <>
-                <li>
-                  <button className="btn" onClick={callUser}>
-                    <VideoCallIcon />
-                  </button>
-                </li>
-                <li>
-                  <button className="btn">
-                    <CallIcon className="dark:fill-dark_svg_1" />
-                  </button>
-                </li>
-              </>
-            )}
-            <li>
-              <button className="btn">
-                <SearchLargeIcon className="dark:fill-dark_svg_1" />
-              </button>
-            </li>
-            <li>
-              <button className="btn">
-                <DotsIcon className="dark:fill-dark_svg_1" />
-              </button>
-            </li>
-          </ul>
         </div>
+        <ul className="flex items-center gap-x-2.5">
+          {insOnline && (
+            <>
+              <li>
+                <button className="btn" onClick={callUser}>
+                  <VideoCallIcon className="dark:fill-dark_svg_1 w-[30px]" />
+                </button>
+              </li>
+              <li>
+                <button className="btn">
+                  <CallIcon className="dark:fill-dark_svg_1" />
+                </button>
+              </li>
+            </>
+          )}
+          <li>
+            <button className="btn">
+              <SearchLargeIcon className="dark:fill-dark_svg_1" />
+            </button>
+          </li>
+          <li>
+            <button className="btn">
+              <DotsIcon className="dark:fill-dark_svg_1" />
+            </button>
+          </li>
+        </ul>
       </div>
+    </div>
   );
 }

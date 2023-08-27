@@ -52,18 +52,18 @@ export default function ConversationItem({
   return (
     <li
       onClick={openConversation}
-      className={`list-none h-[72px] w-full dark:bg-dark_bg_1 hover:${
+      className={`list-none h-[72px] w-full dark:bg-dark_bg_1`}
+    >
+      <div className={`relative w-full flex items-center justify-between py-[10px] hover:${
         activeConversation?._id !== conversation._id && 'dark:bg-dark_bg_2'
       } dark:text-dark_1 px-[10px] ${
         activeConversation?._id === conversation._id && 'dark:bg-dark_hover_1'
-      }`}
-    >
-      <div className="relative w-full flex items-center justify-between py-[10px]">
+      }`}>
         <div className="flex items-center gap-x-3 ">
           <div
             className={`relative w-[80px] rounded-full overflow-hidden ${
               isOnline && 'online'
-            }`}
+            } `}
           >
             <img
               src={getConversationPicture(user as User, conversation.users)}

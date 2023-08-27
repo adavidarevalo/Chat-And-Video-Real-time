@@ -18,7 +18,8 @@ export default function ConversationContainer({ callUser }: ConversationContaine
 
   const { activeConversation, onlineUsers, files } = useSelector(
     (state: AppState) => state.chat,
-  );
+    );
+
   const { user } = useSelector((state: AppState) => state.user);
 
   useEffect(() => {
@@ -41,7 +42,7 @@ export default function ConversationContainer({ callUser }: ConversationContaine
   }, [activeConversation, onlineUsers]);
 
   return (
-    <div className="relative h-full w-full dark:bg-dark_bg_4 select-none border-1 dark:border-l-dark_border_1 border-b-green_2 select-none overflow-hidden">
+    <div className="relative h-full w-full dark:bg-dark_bg_4 select-none border-1 dark:border-l-dark_border_1 border-b-green_2 select-none overflow-inherit">
       <div>
         <ChatHeader insOnline={insOnline} callUser={callUser} />
         {files.length > 0 ? (

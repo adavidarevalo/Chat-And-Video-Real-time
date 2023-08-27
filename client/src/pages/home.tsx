@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Sidebar from '../components/sidebar';
 import { useDispatch, useSelector } from 'react-redux';
-import Peer from 'simple-peer';
+import Peer, { Instance } from 'simple-peer';
 import { getConversations } from '../redux/actions/chat.actions';
 import { WelcomeWhatsappHome } from './../components/chat/welcome';
 import ConversationContainer from '../components/chat/conversation';
@@ -21,6 +21,7 @@ import {
 } from '../utils/get_conversation';
 import { User } from '../types/user.type';
 import _ from 'lodash';
+import moment from 'moment';
 
 const callData = {
   socketId: '',
@@ -49,10 +50,12 @@ export default function HomePage() {
   const [callAccepted, setCallAccepted] = useState(false);
   const myVideo = useRef<HTMLVideoElement>(null);
   const userVideo = useRef<HTMLVideoElement>(null);
-  const connectionRef: any = useRef();
+const connectionRef = useRef<Instance | null>(null);
   const { user } = useSelector((state: AppState) => state.user);
   const [show, setShow] = useState(false);
-  const [totalSecondsInCall, setTotalSecondsInCall] = useState(0)
+  const [totalSecondsInCall, setTotalSecondsInCall] = useState(
+    moment.duration(0),
+  );
   const { activeConversation } = useSelector(
     (state: AppState) => state.chat,
   );
@@ -73,6 +76,7 @@ export default function HomePage() {
         name: data.name,
         picture: data.picture,
         signal: data.signal,
+        receivingCall: true
       }));
     });
     socket?.socket.on('end call', () => {
@@ -87,7 +91,7 @@ export default function HomePage() {
 
   const setupMedia = () => {
     navigator?.mediaDevices
-      .getUserMedia({ video: false, audio: true })
+      .getUserMedia({ video: true, audio: true })
       .then((stream) => {
         setStream(stream);
       });
@@ -129,7 +133,7 @@ export default function HomePage() {
     peer.on('stream', (stream) => {
       _.set(userVideo, 'current.srcObject', stream);
     });
-    socket?.socket.on('answer call', (signal) => {
+    socket?.socket.on('call accepted', (signal) => {
       setCallAccepted(true);
       peer.signal(signal);
     });
@@ -188,7 +192,10 @@ export default function HomePage() {
   const endCall = () => {
     setShow(false);
 
+    if (myVideo.current) myVideo.current.srcObject = null;
+
     setCall((prev) => ({ ...prev, callEnded: true, receivingCall: false }));
+
     socket?.socket.emit('end call', call.socketId);
 
     connectionRef?.current?.destroy();

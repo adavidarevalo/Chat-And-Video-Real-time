@@ -21,7 +21,14 @@ interface InitialState {
   messages: Message[];
   onlineUsers: OnlineUsers[];
   conversationTyping: string[];
-  files: any[];
+  files: {
+    type: string;
+    file: File;
+    fileData?: string;
+    files?: {
+      name: string;
+    };
+  }[];
 }
 
 const initialState: InitialState = {
